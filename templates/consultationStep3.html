@@ -1,0 +1,335 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Details</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Details</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+            <!-- <a href="" class="btn btn-primary">This is action area</a> -->
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="text-left pr-0">
+                    <h1>Details</h1>
+                    <p class="font-weight-bold">Step 3 of 7</p>
+
+                </div>
+                <div class="ibox-content">
+                    <form id="form">
+                    <input type="hidden" name="ProjectType" id="ProjectType" value="One-time project">
+                        <input type="hidden" name="steps" value="step4">
+                        <input type="hidden" name="Describes" id="Describes" value="">
+                        <input type="hidden" name="ConsultantDoing" id="ConsultantDoing" value="">
+                    <h4 class="">What type of project do you have?</h4>
+                    <div class="row">
+                        <div class="col-md-4 tabs-container  text-center mb-3">
+                            <a href="javascript:void(0)" onclick="detailsSteps('1')" class="tabone">
+                                <div class="panel-body ">
+                                    <i class="fa fa-briefcase " style="font-size:4rem;"></i>
+                                    <h3 class="">One-time project</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-4 tabs-container  text-center mb-3">
+                            <a href="javascript:void(0)" onclick="detailsSteps('2')" class="tabtwo">
+                                <div class="panel-body">
+                                    <i class="fa fa-list-alt text-secondary" style="font-size:4rem;"></i>
+                                    <h3 class="text-secondary">Ongoing project</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-4 tabs-container  text-center mb-3">
+                            <a href="javascript:void(0)" onclick="detailsSteps('3')"  class="tabthree">
+                                <div class="panel-body">
+                                    <i class="fa fa-question-circle text-secondary" style="font-size:4rem;"></i>
+                                    <h3 class="text-secondary">I am not sure</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+
+
+                    <div id="divDetails1">
+                        <h4 class="mb-3">Which of the folling best desccribes your project? </h4>
+                        <div class="row">
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox1" value="Trading platform specific project" class="clsdesribe"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox1"> &nbsp;</label><span>Trading platform specific project</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox2" value="Trading strategy specific project"  class="clsdesribe"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox2"> &nbsp;</label><span> Trading strategy specific project</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox3" value="Data driven project" class="clsdesribe"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox3"> &nbsp;</label><span>Data driven project</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox4" value="Develop a bot" class="clsdesribe"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox4"> &nbsp;</label><span>Develop a bot</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox5" value="Improve existing project" class="clsdesribe"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox5"> &nbsp;</label><span>Improve existing project</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox6" value="Other" class="clsdesribe" />
+                                    <label class="mr-2 mb-0" for="inlineCheckbox6"> &nbsp;</label><span>Other</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="divDetails2" style="display:none">
+                        <h4 class="mb-3">What type of work with the consultant be doing? </h4>
+                        <div class="row">
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox1" value="Developer" class="clsConsultantDoing"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox1"> &nbsp;</label><span>Developer</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox2" value="Product manager"  class="clsConsultantDoing"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox2"> &nbsp;</label><span>Product manager</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox3" value="Investment Research Analyst"  class="clsConsultantDoing"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox3"> &nbsp;</label><span>Investment Research Analyst</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox4" value="Designer"  class="clsConsultantDoing"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox4"> &nbsp;</label><span>Designer</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox5" value="Compliance Adviser"  class="clsConsultantDoing"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox5"> &nbsp;</label><span>Compliance Adviser</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox6" value="Business Analyst" class="clsConsultantDoing"/>
+                                    <label class="mr-2 mb-0" for="inlineCheckbox6"> &nbsp;</label><span>Business Analyst</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mb-3">
+                                <div class="checkbox checkbox-success pl-0">
+                                    <input type="checkbox" id="inlineCheckbox6" value="Quality Assurance" class="clsConsultantDoing" />
+                                    <label class="mr-2 mb-0" for="inlineCheckbox6"> &nbsp;</label><span>Quality Assurance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="mb-1">Do you need to integrate with any APIs?</h4>
+                    <div class="row">
+                      <input type="hidden" id="API" name="API" value="Social Media">
+                        <div class="col-md-4 tabs-container  text-center mb-3 clsApi firstapi" onclick="setAPI('1')">
+                            <div class="panel-body pt-4 pb-4">
+                                <h2 class="font-weight-bold text-info ">Social Media</h2>
+                                <h3>Facebook, Google, etc</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4 tabs-container  text-center mb-3 clsApi twotapi"  onclick="setAPI('2')">
+                            <div class="panel-body pt-4 pb-4">
+                                <h2 class="font-weight-bold">Cloud storage</h2>
+                                <h3>Dropbox,Google Drive, etc</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4 tabs-container  text-center mb-3 clsApi threeapi"  onclick="setAPI('3')">
+                            <div class="panel-body pt-4 pb-4">
+                                <h2 class="font-weight-bold">Payment Processor</h2>
+                                <h3>Paypal, Stripe, etc</h3>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 tabs-container  text-center mb-3 clsApi fourapi"  onclick="setAPI('4')">
+                            <div class="panel-body pt-4 pb-4">
+                                <h2 class="font-weight-bold">Other</h2>
+                                <h3>Telegram, Whatsapp, Wechat, etc</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="mb-3">What stage is the project in?</h4>
+                    <div class="row">
+                        <input type="hidden" id="ProjectStage" name="ProjectStage" value="I have Specification">
+                        <div class="col-md-4 tabs-container  text-center mb-3">
+                            <div class="panel-body text-success clsStage firststage">
+                                <i class="fa fa-list" style="font-size:4rem;"></i>
+                                <h3>I have Specification</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4 tabs-container  text-center mb-3">
+                            <div class="panel-body clsStage twostage">
+                                <i class="fa fa-edit" style="font-size:4rem;"></i>
+                                <h3>I have Designs</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4 tabs-container  text-center mb-3">
+                            <div class="panel-body clsStage threestage">
+                                <i class="fa fa-lightbulb-o" style="font-size:4rem;"></i>
+
+                                <h3>I just have a concept</h3>
+                            </div>
+                        </div>
+
+                    </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row mt-4">
+        <div class="col-lg-4">
+            <button class="btn btn-lg btn-white" type="button" onclick="previousstpe('step2')">Back</button>
+            <button class="btn btn-lg btn-gray" type="button" type="button" onclick="nextstpe('step4')">Next</button>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+
+ $('.clsdesribe').click(function(){
+      var arr = [];
+        $('.clsdesribe').each(function(){
+            if($(this).is(":checked"))
+            {
+                arr.push($(this).val());
+            }
+        });
+        $("#Describes").val(arr.join());
+ });
+  $('.clsConsultantDoing').click(function(){
+      var arr = [];
+        $('.clsConsultantDoing').each(function(){
+            if($(this).is(":checked"))
+            {
+                arr.push($(this).val());
+            }
+        });
+        $("#ConsultantDoing").val(arr.join());
+ });
+
+
+function setAPI(no)
+{
+    $('.clsApi').find('.font-weight-bold').removeClass('text-info');
+    if(no === '1')
+    {
+        $('#API').val('Social Media');
+        $('.firstapi').find('.font-weight-bold').addClass('text-info');
+    }
+    if(no === '2')
+    {
+    $('#API').val('Cloud storage');
+        $('.twotapi').find('.font-weight-bold').addClass('text-info');
+    }
+    if(no === '3')
+    {
+    $('#API').val('Payment Processor');
+        $('.threeapi').find('.font-weight-bold').addClass('text-info');
+    }
+    if(no === '4')
+    {
+    $('#API').val('Payment Processor');
+        $('.fourapi').find('.font-weight-bold').addClass('text-info');
+    }
+}
+function setStage(no)
+{
+    $('.clsStage').removeClass('text-info');
+    if(no === '1')
+    {
+        $('#ProjectStage').val('I have Specification');
+        $('.firststage').addClass('text-info');
+    }
+    if(no === '2')
+    {
+    $('#ProjectStage').val('I have Designs');
+        $('.twostage').find('.font-weight-bold').addClass('text-info');
+    }
+    if(no === '3')
+    {
+    $('#ProjectStage').val('I just have a concept');
+        $('.threestage').find('.font-weight-bold').addClass('text-info');
+    }
+}
+    function detailsSteps(step) {
+        if (step === '1') {
+            $("#divDetails1").show();
+            $("#divDetails2").hide();
+            $("#divDetails3").hide();
+            $(".tabone").find('i').addClass('text-success');
+            $(".tabone").find('h3').addClass('text-success');
+            $(".tabtwo").find('i').removeClass('text-success');
+            $(".tabtwo").find('h3').removeClass('text-success');
+            $(".tabthree").find('i').removeClass('text-success');
+            $(".tabthree").find('h3').removeClass('text-success');
+            $("#ProjectType").val('One-time project');
+        }
+        if (step === '2') {
+            $("#divDetails1").hide();
+            $("#divDetails2").show();
+            $("#divDetails3").hide();
+            $(".tabtwo").find('i').addClass('text-success');
+            $(".tabtwo").find('h3').addClass('text-success');
+            $(".tabone").find('i').removeClass('text-success');
+            $(".tabone").find('h3').removeClass('text-success');
+            $(".tabthree").find('i').removeClass('text-success');
+            $(".tabthree").find('h3').removeClass('text-success');
+            $("#ProjectType").val('Ongoing project');
+        }
+        if (step === '3') {
+            $("#divDetails1").hide();
+            $("#divDetails2").hide();
+            $("#divDetails3").show();
+            $(".tabtwo").find('i').removeClass('text-success');
+            $(".tabtwo").find('h3').removeClass('text-success');
+            $(".tabone").find('i').removeClass('text-success');
+            $(".tabone").find('h3').removeClass('text-success');
+            $(".tabthree").find('i').addClass('text-success');
+            $(".tabthree").find('h3').addClass('text-success');
+            $("#ProjectType").val('I am not sure');
+        }
+
+
+    }
+</script>

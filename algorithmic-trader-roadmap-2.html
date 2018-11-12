@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CENTRALIN | Dashboard</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="">
+
+    <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="block m-t-xs font-bold">David Williams</span>
+                            <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
+                            <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        <img src="img/CE-logo-SVG.svg" alt="logo" />
+                    </div>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Downloads</span> <!-- <span class="fa arrow"></span> --></a>
+                    <!-- <ul class="nav nav-second-level collapse">
+                        <li><a href="index.html">Dashboard v.1</a></li>
+                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
+                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
+                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
+                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
+                    </ul> -->
+                </li>
+                <li>
+                    <a href="personal-links.html"><i class="fa fa-diamond"></i> <span class="nav-label">Personal Links</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Shared Links</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="tags.html">Tags</a></li>
+                        <li><a href="users.html">Users</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Trader Roadmap</span><!-- <span class="label label-warning float-right">16/24</span> --><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+						 <li><a href="trader-roadmap.html">Centralin Trader Roadmaps</a></li>
+                        <li><a href="fundamental-trader-roadmap.html">Fundamental Trader Roadmap</a></li>
+                        <li><a href="technical-trader-roadmap.html">Technical Trader Roadmap</a></li>
+                        <li><a href="algorithmic-trader-roadmap.html">Algorithmic Trader Roadmap</a></li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="submit-code.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Submit Code</span></a>
+                </li>
+                <!-- <li>
+                    <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
+                </li> -->
+                <li>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Consultation</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="#">Package Price</a></li>
+                        <li><a href="#">Standard Price</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">Consultation Tools</span><span class="fa arrow"></span>  </a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="#">Graphs</a></li>
+                        <li><a href="#">Tables</a></li>
+                        
+                    </ul>
+                </li>
+            
+            </ul>
+
+        </div>
+    </nav>
+
+        <div id="page-wrapper" class="gray-bg pb-5">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" action="search_results.html">
+                <div class="form-group">
+                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                </div>
+            </form>
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to CENTRALIN </span>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a class="dropdown-item float-left" href="profile.html">
+                                    <img alt="image" class="rounded-circle" src="img/a7.jpg">
+                                </a>
+                                <div class="media-body">
+                                    <small class="float-right">46h ago</small>
+                                    <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                                    <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a class="dropdown-item float-left" href="profile.html">
+                                    <img alt="image" class="rounded-circle" src="img/a4.jpg">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="float-right text-navy">5h ago</small>
+                                    <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                    <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a class="dropdown-item float-left" href="profile.html">
+                                    <img alt="image" class="rounded-circle" src="img/profile.jpg">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="float-right">23h ago</small>
+                                    <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                    <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="mailbox.html" class="dropdown-item">
+                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="mailbox.html" class="dropdown-item">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="float-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a href="profile.html" class="dropdown-item">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="float-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a href="grid_options.html" class="dropdown-item">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="float-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="notifications.html" class="dropdown-item">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="login.html">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+        </div>
+            <div class="row wrapper border-bottom blue-bg pr-0">
+                <div class="col-sm-6">
+                    <h2>Algorithmic Trader Roadmap</h2>
+					<p>You will learn how to create and maintain an automated trading system.
+This roadmap is for complete beginners. It has no prerequisites. 
+27 people marked this helpful   </p>
+					<div class="row">
+					<div class="col-sm-3">
+					<button class="btn btn-default mt-2 " style="color:#333;" type="button">Mark Helpful&nbsp;&nbsp;<i class="fa fa-thumbs-up"></i></button>
+					</div>
+					<div class="col-sm-9">
+					<div class="feed-element">
+                                           <dd class="project-people mb-1">
+                                                <a href=""><img alt="image" class="rounded-circle" src="img/a3.jpg"></a>
+                                                <a href=""><img alt="image" class="rounded-circle" src="img/a1.jpg"></a>
+                                                <a href=""><img alt="image" class="rounded-circle" src="img/a2.jpg"></a>
+                                               <!--  <a href=""><img alt="image" class="rounded-circle" src="img/a4.jpg"></a>
+                                                <a href=""><img alt="image" class="rounded-circle" src="img/a5.jpg"></a> -->
+												
+												
+                                                  <span>36 people marked this helpful</span>                                        
+                                                
+                                            
+												
+                                            </dd>
+											
+                                            
+                                        </div>
+							</div>
+							</div>
+					
+					
+                   <!--  <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="index.html">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <strong>Breadcrumb</strong>
+                        </li>
+                    </ol> -->
+                </div>
+				
+				<div class="col-sm-6 text-right pr-0">
+					<img src="img/roadmap.png" />
+				</div>
+               
+            </div>
+			<div class="m-t wrapper">
+			
+			<h3>What you’ll learn</h3>
+			<ul>
+				<li>Computer Science And Programming Concepts</li>
+				<li>Python Programming Language</li>
+				<li>Interactive Brokers API </li>
+				<li>Scraping and Data Analysis </li>
+				<li>MySQL Database </li>
+                <li>Miscellaneous</li>
+			</ul>
+			
+			
+			
+			</div>
+			
+			
+			<div class="m-t wrapper">
+			
+			<h3>Overview</h3>
+			
+				<p>Algorithmic traders are in demand today because almost 84% of all trades in the stock market are made automatically by computers. As an algorithmic trader, it will need to have strong understanding of application programming interface, data scraping, data analysis, database usage, etc.</p>
+                
+                <p>This roadmap will guide you through some of the crucial technologies you need to learn in order to become a professioanl algorithmic trader.  
+This roadmap focuses on Python 3.6, MySQL 5.7 and Interactive Brokers API 9.73. Keep in mind that there are various other technology stacks you can choose from.</p>
+			
+			<div class="row m-t-sm m-b-sm">
+                                    <div class="col-md-1">
+                                       
+                                        <h5><strong>7</strong> Votes</h5>
+                                    </div>
+                                    <div class="col-md-1">
+                                      
+                                        <h5><strong>28</strong> Tags</h5>
+                                    </div>
+                                    <div class="col-md-1">
+                                        
+                                        <h5><strong>240</strong> Titles</h5>
+                                    </div>
+                                </div>
+			
+			
+			</div>
+            
+            
+            
+          <div class="row">	
+		<div class="col-lg-12">
+                <div class="ibox collapsed">
+                    <div class="ibox-title">
+               <h3>Computer Science And Programming concepts</h3>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+					    <p>This introductory course is taught to students in MIT (Massachusetts, USA) and covers all the important computer science concepts, along with the language.</p>
+			
+<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+	<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+	<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>23</button> </span> </label>
+
+	<div class="col-sm-9">
+		<div>Introduction to Computer Science and Programming Using Python - MIT <span class="ml-1"><a href="https://www.edx.org/">(edx.org)</a></span></div>
+			<div class="mt-2 mb-2">
+			<a class="mr-1" href="#">+ Add</a>
+			<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+			<label class="label label-primary mr-1" href="#" data-toggle="tooltip" title="This is free video" data-placement="top">Free</label>
+			<label class="label label-primary mr-1" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="This is video">Video</label> 
+			<label class="label label-primary mr-1" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="This is Paid video">Paid</label> 
+			</div>
+	</div>
+</div>
+                    </div>
+                </div>
+            </div>	
+            </div>	   
+
+            <div class="row">	
+		<div class="col-lg-12">
+                <div class="ibox collapsed">
+                    <div class="ibox-title">
+                 <h3>Python Programming language</h3>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+					    <p>If you prefer reading, Learn Python the Hard Way (paid) is a great resource. If video lectures are your thing, Python Master Class is an extensive and easy to follow tutorial.</p>
+
+                    
+						<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>280</button> </span> </label>
+
+						<div class="col-sm-9">
+							<div> Learn Python the Hard Way<span class="ml-1"><a href="https://learnpythonthehardway.org/">(learnpythonthehardway.org)</a></span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								<label class="label label-primary mr-1" href="#" data-toggle="tooltip" title="This is Paid video" data-placement="top">Paid</label>
+								<label class="label label-primary mr-1" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="This is Book">Book</label> 
+								<label class="label label-primary mr-1" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="This is Python3">Python3</label> 
+								</div>
+						</div>
+					</div>
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>280</button> </span> </label>
+
+						<div class="col-sm-9">
+							<div> Learn Python the Hard Way<span class="ml-1"><a href="https://learnpythonthehardway.org/">(learnpythonthehardway.org)</a></span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								<label class="label label-primary mr-1" href="#" data-toggle="tooltip" title="This is Paid video" data-placement="top">Paid</label>
+								<label class="label label-primary mr-1" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="This is Book">Book</label> 
+								<label class="label label-primary mr-1" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="This is Python3">Python3</label> 
+								</div>
+						</div>
+					</div>
+                    </div>
+                </div>
+            </div>	
+            </div>	
+
+<div class="row">	
+		<div class="col-lg-12">
+                <div class="ibox collapsed">
+                    <div class="ibox-title">
+                   <h3>Interactive Brokers API</h3>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+					   <p>If you prefer reading in a step by step storyline , Investment Idiocy is a great way to follow. If you prefer to read in a reference book format, you may read the offical Interactive Brokers API guide directly.</p>
+
+                  
+
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>0</button> </span> </label>
+
+						<div class="col-sm-9">
+							<div> Investment Idiocy<span class="ml-1"><a href="https://qoppac.blogspot.com/2017/03/interactive-brokers-native-python-api.html">(qoppac.blogspot.com)</a></span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								<label class="label label-primary mr-1" href="#" data-toggle="tooltip" title="This is free video" data-placement="top">free</label>
+								
+								</div>
+						</div>
+					</div>
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>0</button> </span> </label>
+
+						<div class="col-sm-9">
+							<div>Interactive Brokers<span class="ml-1"><a href="http://interactivebrokers.github.io/tws-api/">(interactivebrokers.github.io)</a></span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								<label class="label label-primary mr-1" href="#" data-toggle="tooltip" title="This is free video" data-placement="top">free</label>
+								
+								</div>
+						</div>
+					</div>
+					
+                    </div>
+                </div>
+            </div>	
+	</div>	
+               <div class="row">	
+		<div class="col-lg-12">
+                <div class="ibox collapsed">
+                    <div class="ibox-title">
+                   <h3>Scraping and Data Analysis</h3>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+					 <p>Pandas is the most famous data manipulation tool for Python. For scraping, if you want HTML scraping, you can use requests for simple purpose. Scrapy offers a comprehensive set of tools for scraping complicated websites.</p>
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>0</button> </span> </label>
+
+						<div class="col-sm-9">
+							<div><span class="ml-1"><a href="http://pandas.pydata.org/pandas-docs/stable/"> Pandas</a></span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								</div>
+						</div>
+					</div>
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>0</button> </span> </label>
+
+						<div class="col-sm-9">
+						<div><span class="ml-1"><a href="http://docs.python-requests.org/en/master/">Request</a></span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								</div>
+						</div>
+					</div>
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>0</button> </span> </label>
+
+						<div class="col-sm-9">
+						<div><span class="ml-1"><a href="https://doc.scrapy.org/en/latest/intro/tutorial.html">Scrapy</a> </span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								</div>
+						</div>
+					</div>
+
+                    </div>
+                </div>
+            </div>	
+            </div>	
+            
+            <div class="row">	
+		<div class="col-lg-12">
+                <div class="ibox collapsed">
+                    <div class="ibox-title">
+                    <h3>MySQL Database</h3>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+					 <p>MySQL provides a implementation of a SQL database very well suited for small to medium web pages. The database is the most popular free and open source database worldwide.</p>
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>0</button> </span> </label>
+
+						<div class="col-sm-9">
+						<div><span class="ml-1"><a href="https://dev.mysql.com/doc/refman/5.7/en/">MySQL</a> </span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								</div>
+						</div>
+					</div>
+
+                    </div>
+                </div>
+            </div>	
+            </div>	
+			
+			
+			
+			
+			
+					<div class="row">	
+		<div class="col-lg-12">
+                <div class="ibox collapsed">
+                    <div class="ibox-title">
+                       <h3>Miscellaneous</h3>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+					<p>Tkinter is the most used GUI package for Python data analysis, it obviously do its job. However, if you want a more user friendly interface, it is preferred to set up a web server and control via a web interface as most of us already familiar with websites. Trader can efficiently control database via telegram on the go, which makes traders available 24/7 with a phone.</p>
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>0</button> </span> </label>
+
+						<div class="col-sm-9">
+						<div><span class="ml-1"><a href="https://wiki.python.org/moin/TkInter">Tkinter</a> </span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								</div>
+						</div>
+					</div>
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>0</button> </span> </label>
+
+						<div class="col-sm-9">
+						<div><span class="ml-1"><a href="http://flask.pocoo.org/">Flask</a></span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								</div>
+						</div>
+					</div>
+					<div class="d-flex m-t-sm pt-2 border align-items-center">
+
+						<label class="col-sm-1"><span class="input-group-prepend justify-content-center">
+						<button type="button" class="btn btn-primary pl-3 pr-3"><i class="fa fa-chevron-down"></i><br/>0</button> </span> </label>
+
+						<div class="col-sm-9">
+						<div><span class="ml-1"><a href="https://core.telegram.org/">Telegram</a></span></div>
+								<div class="mt-2 mb-2">
+								<a class="mr-1" href="#">+ Add</a>
+								<h5 class="d-inline-block mr-1">Submitted by Peter</h5>
+								</div>
+						</div>
+					</div>
+
+                    </div>
+                </div>
+            </div>	
+            </div>	
+			
+           
+            
+            <div class="m-t wrapper">
+			<h3>How to follow this roadmap?</h3>
+			<ul>
+				<li>Read on Python and see if it interests you. Otherwise, you can choose to follow any other roadmap.</li>
+				<li>If you want to learn the basics of computer science, you should start with the MIT course. It uses Python, but you should be able to pick up any language after taking it.</li>
+				<li>If you want to get started as soon as possible, you can start with any of the Python tutorials. After finishing whichever Python tutorial(s) you end up choosing, you should start with the “Investment Idiocy” tutorial.</li>
+				<li>MySQL is an open source database engine which you can integrate with your app. You can also look into Postgres or MariaDB.</li>
+				<li>If you found the roadmap is too difficult or it will simply takes too long to complete. You may hire our consultants to make your desired trading system for you.</li>
+			</ul>
+			
+			</div>
+            
+            
+            <div class="m-t wrapper">
+                <h3>Discuss this roadmap:</h3>
+                <p>Ask a question or write your feedback/review of this roadmap or tell anything to the people considering this roadmap.</p>
+			</div>
+            
+            <div class="row">	
+				<div class="col-lg-12">
+                <div class="ibox">
+					<div class="ibox-content">
+					<div class="form-group row mb-0">
+					<label class="col-sm-2 col-form-label text-right"><i class="fa fa-weixin"></i></label>
+
+                                    <div class="col-sm-9">
+
+                                        
+                                        <div class="input-group"><input type="text" class="form-control" placeholder="What's on your mind?"> <span class="input-group-append"> <button type="button" class="btn btn-primary">Submit
+                                        </button> </span></div>
+                                    </div>
+                                </div>
+					</div>
+				</div>
+				</div>
+				</div>
+            
+
+          
+		   
+		   
+            <div class="footer text-center">
+               
+                <div>
+                   Copyright <strong>CENTRALIN</strong>  &copy; 2017-2018
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+</body>
+
+</html>
