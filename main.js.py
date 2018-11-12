@@ -154,7 +154,7 @@ def consultantPageseven():
 @app.route('/saveConsultantpage', methods=['POST'])
 def saveconsultant():
     #userid: object = session["userId"]#Permanent
-    userid: object = session["112wwwwwwwwww"]
+    userid: object = session["112"]
     steps = request.form['steps']
     Plan = request.form.get('plan', '')
     #Title = request.form.get('Title', '')#permanent
