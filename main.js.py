@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def loadDefaultPage():
-    return render_template('/consultation.html')
+    return render_template('/login.html')
 
 
 app.config['SECRET_KEY'] = 'meow'
@@ -153,12 +153,10 @@ def consultantPageseven():
 
 @app.route('/saveConsultantpage', methods=['POST'])
 def saveconsultant():
-    #userid: object = session["userId"]#Permanent
-    userid: object = session["112"]
+    userid: object = session["userId"]
     steps = request.form['steps']
     Plan = request.form.get('plan', '')
-    #Title = request.form.get('Title', '')#permanent
-    Title = request.form.get('Title', 'abc')
+    Title = request.form.get('Title', '')
     Description = request.form.get('Description', '')
     ProjectType = request.form.get('ProjectType', '')
     Describes = request.form.get('Describes', '')
@@ -174,6 +172,29 @@ def saveconsultant():
 def TitlePage():
     return render_template('title.html')
 
+@app.route("/register", methods=['POST','GET'])
+def RegistrationPage():
+    if request.method == 'POST':
+        name = request.form['fname']
+        lname = request.form['lname']
+        email = request.form['email']
+        paswd = request.form['paswd']
+        print("ALl the details are : ",name,lname, email,paswd)
+        fullname = name+" "+lname
+        with connection.cursor() as cur:
+            cur.execute(
+                "select * from user where username = '" + email + "' and password_hash = '" + paswd + "'")
+            data = cur.fetchone()
+            if data:
+                print("USER ALREADY EXIST")
+            else:
+                sql = "INSERT INTO user ( username,email,password_hash,fullname, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s)"
+                cur.execute(sql, (name, email, paswd, fullname, datetime.datetime.now(), datetime.datetime.now()))
+                connection.commit()
+                return render_template('consultation.html')
+            cur.close()
+
+    return render_template('landing-page.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

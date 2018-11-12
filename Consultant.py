@@ -11,8 +11,7 @@ class ConsultantClass:
         self.Plan = Plan
         self.Title = Title
         self.Description = Description
-        #self.UserId = UserId
-        self.UserId = '112'
+        self.UserId = UserId
         self.ProjectType = ProjectType
         self.Describes = Describes
         self.ConsultantDoing = ConsultantDoing

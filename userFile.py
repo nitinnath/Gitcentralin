@@ -7,14 +7,14 @@ class UserModel:
 
     def usernamepasswordmatch(username, password):
         with connection.cursor() as cur:
-            rows_count = cur.execute("select * from user where username = '" + username + "' and password = '" + password + "' LIMIT 0,1")
+            rows_count = cur.execute("select * from user where username = '" + username + "' and password_hash = '" + password + "' LIMIT 0,1")
             cur.close()
             return rows_count
 
     def CheckUserExsist(username, password):
         with connection.cursor() as cur:
             cur.execute(
-                "select * from user where username = '" + username + "' and password = '" + password + "'")
+                "select * from user where username = '" + username + "' and password_hash = '" + password + "'")
             data = cur.fetchone()
             cur.close()
             return data
