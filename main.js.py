@@ -170,6 +170,10 @@ def saveconsultant():
     consultantObj.SaveConsultant()
     return steps
 
+@app.route("/title")
+def TitlePage():
+    return render_template('title.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
