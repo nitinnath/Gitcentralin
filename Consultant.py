@@ -40,6 +40,7 @@ class ConsultantClass:
             cur.execute("select * from consultant where UserId = '" + str(self.UserId) + "'")
             data = cur.fetchone()
             cur.close()
+            print("data retrieved from getConsultantById: ", data)
             return data
 
     def insertFirstStepConsultantLink(self):
@@ -87,7 +88,7 @@ class ConsultantClass:
             with connection.cursor() as cursor:
                 sql = "UPDATE consultant set ProjectType = %s,Describes = %s,ConsultantDoing = %s,API = %s,ProjectStage = %s Where UserId = %s"
                 cursor.execute(sql, (
-                self.ProjectType, self.Describes, self.ConsultantDoing, self.API, self.ProjectStage, self.UserId))
+                    self.ProjectType, self.Describes, self.ConsultantDoing, self.API, self.ProjectStage, self.UserId))
                 connection.commit()
                 cursor.close()
         finally:
@@ -112,3 +113,15 @@ class ConsultantClass:
         if self.Steps == 'step4':
             if consultantRecords is not None:
                 ConsultantClass.updateFourStepConsultantLink(self)
+
+        if self.Steps == 'step5':
+            if consultantRecords is not None:
+                ConsultantClass.updateFiveStepConsultantLink(self)
+
+        if self.Steps == 'step6':
+            if consultantRecords is not None:
+                ConsultantClass.updateSixStepConsultantLink(self)
+
+        if self.Steps == 'step7':
+            if consultantRecords is not None:
+                ConsultantClass.updateSevenStepConsultantLink(self)

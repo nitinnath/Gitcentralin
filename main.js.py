@@ -1,9 +1,11 @@
 from functools import wraps
 
 import datetime
-import jwt
+import jwt, os
 import pymysql.cursors
-from flask import Flask, redirect, request, render_template, session
+from flask import Flask, redirect, request, render_template, session, flash, url_for
+from werkzeug.security import *
+from werkzeug.utils import secure_filename
 
 from Consultant import ConsultantClass
 from personallinks import PersonalLink
@@ -57,13 +59,17 @@ def get_token():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
+    if session:
+        session.clear()
     if request.method == 'POST':
         user = request.form['username']
         password = request.form['password']
         userclass = UserModel.CheckUserExsist(user, password)
+        # print("ssssssssssss",userclass)
         if userclass != None:
             session["isLogin"] = True
             session["userId"] = userclass['Id']
+            session["fullName"] = userclass['fullname']
             return redirect('/consultant')
         else:
             session["isLogin"] = False
@@ -113,7 +119,8 @@ def consultantPage():
     if IsAuthorized() == False:
         return redirect('/login')
     else:
-        return render_template('consultation.html')
+        # print("userrrr is authored")
+        return render_template('consultation.html', paramName=session['fullName'])
 
 
 @app.route("/consultantstep1")
@@ -151,7 +158,7 @@ def consultantPageseven():
     return render_template('consultationStep7.html')
 
 
-@app.route('/saveConsultantpage', methods=['POST'])
+@app.route('/saveConsultantpage', methods=['POST', 'GET'])
 def saveconsultant():
     userid: object = session["userId"]
     steps = request.form['steps']
@@ -163,38 +170,85 @@ def saveconsultant():
     ConsultantDoing = request.form.get('ConsultantDoing', '')
     API = request.form.get('API', '')
     ProjectStage = request.form.get('ProjectStage', '')
+    print("Retrieved from main->saveconsultant: ", steps, userid, Plan, Title, Description, ProjectType, Describes,
+          ConsultantDoing, API, ProjectStage)
     consultantObj = ConsultantClass(steps, userid, Plan, Title, Description, ProjectType, Describes, ConsultantDoing,
                                     API, ProjectStage, '', '', '', '', '', '', '', '', '')
     consultantObj.SaveConsultant()
     return steps
 
+
 @app.route("/title")
 def TitlePage():
     return render_template('title.html')
 
-@app.route("/register", methods=['POST','GET'])
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSION
+
+
+'''@app.route('/uploader', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            print('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        print("file is sssssssssssss: ", file)
+        # if user does not select file, browser also
+        # submit an empty part without filename
+        if file.filename == '':
+            print('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            print("filename is : ", filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # return redirect(url_for('uploaded_file', filename=filename))
+return 
+ <!doctype html>
+ <title>Upload new File</title>
+ <h1>Upload new File</h1>
+ <form method=post enctype=multipart/form-data>
+   <input type=file name=file>
+   <input type=submit value=Upload>
+ </form>
+ '''
+
+
+@app.route("/register", methods=['POST', 'GET'])
 def RegistrationPage():
     if request.method == 'POST':
         name = request.form['fname']
         lname = request.form['lname']
         email = request.form['email']
         paswd = request.form['paswd']
-        print("ALl the details are : ",name,lname, email,paswd)
-        fullname = name+" "+lname
-        with connection.cursor() as cur:
-            cur.execute(
-                "select * from user where username = '" + email + "' and password_hash = '" + paswd + "'")
-            data = cur.fetchone()
-            if data:
-                print("USER ALREADY EXIST")
-            else:
-                sql = "INSERT INTO user ( username,email,password_hash,fullname, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s)"
-                cur.execute(sql, (name, email, paswd, fullname, datetime.datetime.now(), datetime.datetime.now()))
-                connection.commit()
-                return render_template('consultation.html')
-            cur.close()
+        ps = generate_password_hash(paswd)
+        if (name == '' or name.isspace == True) or (lname == '' or lname.isspace() == True) or (
+                email == '' or email.isspace() == True) or (paswd == '' or paswd.isspace() == True):
+            error = "Please fill all the above details correctly."
+            return render_template('landing-page.html', paramName=error)
+        else:
+            print("ALl the details are : ", name, lname, email, paswd)
+            fullname = name + " " + lname
+            with connection.cursor() as cur:
+                cur.execute(
+                    "select * from user where username = '" + email + "' ")
+                data = cur.fetchone()
+                if data is not None:
+                    error = "Email Id already used."
+                    return render_template('landing-page.html', paramName=error)
+                else:
+                    sql = "INSERT INTO user ( username,email,password_hash,fullname, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s)"
+                    cur.execute(sql, (email, email, paswd, fullname, datetime.datetime.now(), datetime.datetime.now()))
+                    connection.commit()
+                    session['userName'] = fullname
+                    return render_template('consultation.html', paramName=fullname)
+                cur.close()
 
     return render_template('landing-page.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

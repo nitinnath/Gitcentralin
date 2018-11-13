@@ -12,6 +12,7 @@ class UserModel:
             return rows_count
 
     def CheckUserExsist(username, password):
+
         with connection.cursor() as cur:
             cur.execute(
                 "select * from user where username = '" + username + "' and password_hash = '" + password + "'")

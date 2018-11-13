@@ -1,6 +1,7 @@
-
 from connection import connection
 import datetime
+
+
 class PersonalLink:
     priority = ''
     websiteurl = ''
@@ -12,7 +13,7 @@ class PersonalLink:
     visualize = ''
     createddate = ''
 
-    def __init__(self, priority, websiteurl, websitename, purpose, tags, type, market, visualize,createddate):
+    def __init__(self, priority, websiteurl, websitename, purpose, tags, type, market, visualize, createddate):
         self.priority = priority
         self.websiteurl = websiteurl
         self.websitename = websitename
@@ -35,7 +36,9 @@ class PersonalLink:
             with connection.cursor() as cursor:
                 # Read a single record
                 sql = "INSERT INTO personallink ( priority,websiteurl,websitename,purpose,tags,type,market,visualize,createddate) VALUES (%s, %s,%s, %s,%s, %s,%s, %s, %s)"
-                cursor.execute(sql, (self.priority, self.websiteurl, self.websitename, self.purpose, self.tags, self.type, self.market, self.visualize, self.createddate))
+                cursor.execute(sql, (
+                self.priority, self.websiteurl, self.websitename, self.purpose, self.tags, self.type, self.market,
+                self.visualize, self.createddate))
                 connection.commit()
                 cursor.close()
         finally:
