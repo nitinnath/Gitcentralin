@@ -24,25 +24,27 @@
 
             <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
             </div>
-
+            <form  role="form" action="http://localhost:5000/login" method="post">
             <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 signup-field">
                 <div class="row">
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+
+                    <div class="col-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <div class="form-group">
-                            <input type="text" placeholder="Email">
+                            <input type="text" name="username" placeholder="Email">
                         </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="col-10 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <div class="form-group">
-                            <input type="password" placeholder="Password">
+                            <input type="password" name="password" placeholder="Password">
                         </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    </div><hr>
+                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
                         <button type="submit" class="signup-btn">Sign in</button>
                         <a href="" class="forgot-pass">Forgot Password?</a>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 </section>

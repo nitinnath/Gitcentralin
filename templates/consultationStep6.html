@@ -29,7 +29,7 @@
 
                 </div>
                 <div class="ibox-content">
-
+                    <input type="hidden" name="PayBy" id="PayBy" value="Pay by the hour">
                     <h4 class="">How would you like to pay your consultant?</h4>
                     <div class="row">
                         <div class="col-md-4 tabs-container  text-center mb-3">
@@ -56,11 +56,12 @@
 
                     </div>
                     <div id="divDetails1">
+                        <input type="hidden" name="ProjectDuration" id="ProjectDuration" value="Less than 1 month">
                         <h4 class="mb-3">How long do you expect this project to last? </h4>
                         <div class="row">
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="">
+                                <a href="javascript:void(0)" onclick="setDuration('1')">
                                     <div class="panel-body">
                                         <i class="fa fa-calendar-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">Less than 1 month</h3>
@@ -69,7 +70,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="">
+                                <a href="javascript:void(0)" onclick="setDuration('2')">
                                     <div class="panel-body">
                                         <i class="fa fa-calendar-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">1 to 3 months</h3>
@@ -78,7 +79,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="">
+                                <a href="javascript:void(0)" onclick="setDuration('3')">
                                     <div class="panel-body">
                                         <i class="fa fa-calendar-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">More than 3 months</h3>
@@ -90,9 +91,9 @@
                         </div>
                         <h4 class="mb-1">Do you have a time requirement for this project?</h4>
                         <div class="row">
-
+                            <input type="hidden" name="TimeRequirement" id="TimeRequirement" value="More than 30 hrs/week">
                             <div class="col-md-4 tabs-container text-success text-center mb-3">
-                                <a href="">
+                                <a href="javascript:void(0)" onclick="setTimeRequirement('1')">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-success" style="font-size:4rem;"></i>
                                         <h3 class="text-success">More than 30 hrs/week</h3>
@@ -102,7 +103,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="">
+                                <a href="javascript:void(0)" onclick="setTimeRequirement('2')">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">Less than 30 hrs/week</h3>
@@ -113,7 +114,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="">
+                               <a href="javascript:void(0)" onclick="setTimeRequirement('3')">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">I don't know yet</h3>
@@ -127,6 +128,7 @@
                         </div>
                     </div>
                     <div id="divDetails2">
+
                         <h4 class="mb-3">Do you have specfic budget? </h4>
                         <div class="row">
 
@@ -135,7 +137,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-addon">$</span>
                                     </div>
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="SpecificBudget" id="SpecificBudget" class="form-control">
                                     <div class="input-group-append">
                                         <span class="input-group-addon">.00</span>
                                     </div>
@@ -146,9 +148,9 @@
                         </div>
                         <h4 class="mb-1">How urgent is your project?</h4>
                         <div class="row">
-
+                            <input type="hidden" name="Urgency" id="Urgency" value="This project is urgent. I am willing to pay a higher price.">
                             <div class="col-md-4 tabs-container text-success text-center mb-3">
-                                <a href="">
+                                <a href="javascript:void(0)" onclick="setUrgency('1')">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
@@ -159,7 +161,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="">
+                                <a href="javascript:void(0)" onclick="setUrgency('2')">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
@@ -170,7 +172,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="">
+                                <a href="javascript:void(0)" onclick="setUrgency('3')">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <p class="text-secondary">Time is not a concern for this project. I am willing
@@ -208,6 +210,7 @@
             $(".tabone").find('h3').addClass('text-success');
             $(".tabtwo").find('i').removeClass('text-success');
             $(".tabtwo").find('h3').removeClass('text-success');
+            $('#PayBy').val('Pay by the hour');
         }
         if (step === '2') {
             $("#divDetails1").hide();
@@ -216,7 +219,29 @@
             $(".tabtwo").find('h3').addClass('text-success');
             $(".tabone").find('i').removeClass('text-success');
             $(".tabone").find('h3').removeClass('text-success');
+            $('#PayBy').val('Pay a fixed price');
         }
     }
+    function setDuration(step) {
+        if (step === '1') {
+            $('#ProjectDuration').val('Less than 1 month');
+        }
+        if (step === '2') {
+            $('#ProjectDuration').val('1 to 3 months');
+        }
+        if (step === '3') {
+            $('#ProjectDuration').val('More than 3 months');
+        }
+    function setTimeRequirement(step) {
+        if (step === '1') {
+            $('#TimeRequirement').val('More than 30 hrs/week');
+        }
+        if (step === '2') {
+            $('#TimeRequirement').val('Less than 30 hrs/week');
+        }
+        if (step === '3') {
+            $('#TimeRequirement').val('I don't know yet');
+        }
+
 
 </script>

@@ -4,29 +4,36 @@ import datetime
 
 class ConsultantClass:
 
-    def __init__(self, Steps, UserId, Plan, Title, Description, ProjectType, Describes, ConsultantDoing, API,
-                 ProjectStage, Skill, SkillList,
-                 SeeYourJob, PayPlan, ExpertiseLevel, HowLongNeed, TimeRequirement, SpecificBudget, UrgentProject):
-        self.Steps = Steps
-        self.Plan = Plan
-        self.Title = Title
-        self.Description = Description
-        self.UserId = UserId
-        self.ProjectType = ProjectType
-        self.Describes = Describes
-        self.ConsultantDoing = ConsultantDoing
-        self.type = type
-        self.API = API
-        self.ProjectStage = ProjectStage
-        self.Skill = Skill
-        self.SkillList = SkillList
-        self.SeeYourJob = SeeYourJob
-        self.PayPlan = PayPlan
-        self.ExpertiseLevel = ExpertiseLevel
-        self.HowLongNeed = HowLongNeed
-        self.TimeRequirement = TimeRequirement
-        self.SpecificBudget = SpecificBudget
-        self.UrgentProject = UrgentProject
+    def __init__(self, UserId, Steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation, FileData, ProjectType,
+                 Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills, JobCanSeenBy, PayBy, ProjectDuration,
+                 TimeRequirement, SpecificBudget, Urgency, Feature, Done):
+
+        #self.type = type
+        self.UserId=UserId
+        self.Steps=Steps
+        self.Plan=Plan
+        self.Title=Title
+        self.JobCategory=JobCategory
+        self.SubCategory=SubCategory
+        self.Description=Description
+        self.FileName=FileName
+        self.FileLocation=FileLocation
+        self.FileData=FileData
+        self.ProjectType=ProjectType
+        self.Describes=Describes
+        self.WorkType=WorkType
+        self.ApiToIntegrate=ApiToIntegrate
+        self.ProjectStage=ProjectStage
+        self.ImpSkills=ImpSkills
+        self.LookingSkills=LookingSkills
+        self.JobCanSeenBy=JobCanSeenBy
+        self.PayBy=PayBy
+        self.ProjectDuration=ProjectDuration
+        self.TimeRequirement=TimeRequirement
+        self.SpecificBudget=SpecificBudget
+        self.Urgency=Urgency
+        self.Feature=Feature
+        self.Done=Done
 
     def getAllData(self):
         with connection.cursor() as cur:
@@ -46,8 +53,8 @@ class ConsultantClass:
     def insertFirstStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "INSERT INTO consultant (Plan,UserId) VALUES (%s, %s)"
-                cursor.execute(sql, (self.Plan, self.UserId))
+                sql = "INSERT INTO consultant (Plan, UserId, LastStep=%s, created_at, updated_at) VALUES (%s, %s, %s, %s)"
+                cursor.execute(sql, (self.Plan, self.UserId, self.Steps, datetime.datetime.now(), datetime.datetime.now()))
                 connection.commit()
                 cursor.close()
         finally:
@@ -56,8 +63,8 @@ class ConsultantClass:
     def updateFirstStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set Plan = %s Where UserId = %s"
-                cursor.execute(sql, (self.Plan, self.UserId))
+                sql = "UPDATE consultant set Plan = %s, LastStep=%s, updated_at=%s Where UserId = %s"
+                cursor.execute(sql, (self.Plan, self.Steps, datetime.datetime.now(), self.UserId ))
                 connection.commit()
                 cursor.close()
         finally:
@@ -66,8 +73,8 @@ class ConsultantClass:
     def updateSecondStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set Title = %s Where UserId = %s"
-                cursor.execute(sql, (self.Title, self.UserId))
+                sql = "UPDATE consultant set Title = %s, LastStep=%s, updated_at=%s, JobCategory=%s, SubCategory=%s  Where UserId = %s"
+                cursor.execute(sql, (self.Title, self.Steps, datetime.datetime.now(), self.JobCategory, self.SubCategory, self.UserId))
                 connection.commit()
                 cursor.close()
         finally:
@@ -76,8 +83,8 @@ class ConsultantClass:
     def updateThirdStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set Description = %s Where UserId = %s"
-                cursor.execute(sql, (self.Description, self.UserId))
+                sql = "UPDATE consultant set Description=%s, LastStep=%s,  FileName = %s,  FileLocation = %s,  FileData = %s, updated_at=%s   Where UserId = %s"
+                cursor.execute(sql, (self.Description, self.Steps, self.FileName, self.FileLocation, self.FileData, datetime.datetime.now(), self.UserId))
                 connection.commit()
                 cursor.close()
         finally:
@@ -86,9 +93,38 @@ class ConsultantClass:
     def updateFourStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set ProjectType = %s,Describes = %s,ConsultantDoing = %s,API = %s,ProjectStage = %s Where UserId = %s"
-                cursor.execute(sql, (
-                    self.ProjectType, self.Describes, self.ConsultantDoing, self.API, self.ProjectStage, self.UserId))
+                sql = "UPDATE consultant set ProjectType = %s, LastStep=%s,  Describes = %s, WorkType = %s, ApiToIntegrate = %s, ProjectStage = %s, updated_at=%s Where UserId = %s"
+                cursor.execute(sql, (self.ProjectType, self.Steps, self.Describes, self.WorkType, self.ApiToIntegrate, self.ProjectStage, datetime.datetime.now(), self.UserId))
+                connection.commit()
+                cursor.close()
+        finally:
+            return ""
+
+    def updateFiveStepConsultantLink(self):
+        try:
+            with connection.cursor() as cursor:
+                sql = "UPDATE consultant set ImpSkills = %s, LastStep=%s, LookingSkills = %s, updated_at=%s  Where UserId = %s"
+                cursor.execute(sql, (self.ImpSkills, self.Steps, self.LookingSkills, datetime.datetime.now(), self.UserId))
+                connection.commit()
+                cursor.close()
+        finally:
+            return ""
+
+    def updateSixStepConsultantLink(self):
+        try:
+            with connection.cursor() as cursor:
+                sql = "UPDATE consultant set ProjectType = %s, LastStep=%s, Describes = %s, WorkType = %s, ApiToIntegrate = %s, ProjectStage = %s, updated_at=%s Where UserId = %s"
+                cursor.execute(sql, (self.ProjectType, self.Steps, self.Describes, self.WorkType, self.ApiToIntegrate, self.ProjectStage, datetime.datetime.now(), self.UserId))
+                connection.commit()
+                cursor.close()
+        finally:
+            return ""
+
+    def updateSevenStepConsultantLink(self):
+        try:
+            with connection.cursor() as cursor:
+                sql = "UPDATE consultant set ProjectType = %s, LastStep=%s, Describes = %s, WorkType = %s, ApiToIntegrate = %s, ProjectStage = %s, updated_at=%s Where UserId = %s"
+                cursor.execute(sql, (self.ProjectType, self.Steps, self.Describes, self.WorkType, self.ApiToIntegrate, self.ProjectStage, datetime.datetime.now(), self.UserId))
                 connection.commit()
                 cursor.close()
         finally:

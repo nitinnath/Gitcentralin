@@ -164,16 +164,35 @@ def saveconsultant():
     steps = request.form['steps']
     Plan = request.form.get('plan', '')
     Title = request.form.get('Title', '')
+    JobCategory = request.form.get('JobCategory', '')
+    SubCategory = request.form.get('SubCategory', '')
     Description = request.form.get('Description', '')
+    FileName = request.form.get('file', '')
+    FileLocation = request.form.get('FileLocation', '')
+    FileData = request.form.get('FileData', '')
     ProjectType = request.form.get('ProjectType', '')
     Describes = request.form.get('Describes', '')
-    ConsultantDoing = request.form.get('ConsultantDoing', '')
-    API = request.form.get('API', '')
+    WorkType = request.form.get('WorkType', '')
+    ApiToIntegrate = request.form.get('API', '')
     ProjectStage = request.form.get('ProjectStage', '')
-    print("Retrieved from main->saveconsultant: ", steps, userid, Plan, Title, Description, ProjectType, Describes,
-          ConsultantDoing, API, ProjectStage)
-    consultantObj = ConsultantClass(steps, userid, Plan, Title, Description, ProjectType, Describes, ConsultantDoing,
-                                    API, ProjectStage, '', '', '', '', '', '', '', '', '')
+    ImpSkills = request.form.get('ImpSkills', '')
+    LookingSkills = request.form.get('LookingSkills', '')
+    JobCanSeenBy = request.form.get('JobCanSeenBy', '')
+    PayBy = request.form.get('PayBy', '')
+    ProjectDuration = request.form.get('ProjectDuration', '')
+    TimeRequirement = request.form.get('TimeRequirement', '')
+    SpecificBudget = request.form.get('SpecificBudget', '')
+    Urgency = request.form.get('Urgency', '')
+    Feature = request.form.get('Feature', '')
+    Done = request.form.get('Done', '')
+    print("Retrieved from main->saveconsultant: ",userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
+          FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills,
+          JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature, Done)
+
+    consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation,
+                                    FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
+                                    LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget,
+                                    Urgency, Feature, Done)
     consultantObj.SaveConsultant()
     return steps
 
@@ -183,11 +202,11 @@ def TitlePage():
     return render_template('title.html')
 
 
-def allowed_file(filename):
+'''def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSION
 
 
-'''@app.route('/uploader', methods=['GET', 'POST'])
+@app.route('/uploader', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -230,7 +249,7 @@ def RegistrationPage():
             error = "Please fill all the above details correctly."
             return render_template('landing-page.html', paramName=error)
         else:
-            print("ALl the details are : ", name, lname, email, paswd)
+            #print("All the details are : ", name, lname, email, paswd)
             fullname = name + " " + lname
             with connection.cursor() as cur:
                 cur.execute(
