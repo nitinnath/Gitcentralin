@@ -157,6 +157,85 @@ def consultantPagesix():
 def consultantPageseven():
     return render_template('consultationStep7.html')
 
+@app.route("/PostJob", methods=['POST', 'GET'])
+def consultantPagesevenPostJob():
+    print("in to consultantPagesevenPostJob")
+    if request.method == 'POST':
+        userid: object = session["userId"]
+        steps = request.form['steps']
+        Plan = request.form.get('plan', '')
+        Title = request.form.get('Title', '')
+        JobCategory = request.form.get('JobCategory', '')
+        SubCategory = request.form.get('SubCategory', '')
+        Description = request.form.get('Description', '')
+        FileName = request.form.get('file', '')
+        FileLocation = request.form.get('FileLocation', '')
+        FileData = request.form.get('FileData', '')
+        ProjectType = request.form.get('ProjectType', '')
+        Describes = request.form.get('Describes', '')
+        WorkType = request.form.get('WorkType', '')
+        ApiToIntegrate = request.form.get('API', '')
+        ProjectStage = request.form.get('ProjectStage', '')
+        ImpSkills = request.form.get('ImpSkills', '')
+        LookingSkills = request.form.get('LookingSkills', '')
+        JobCanSeenBy = request.form.get('JobCanSeenBy', '')
+        PayBy = request.form.get('PayBy', '')
+        ProjectDuration = request.form.get('ProjectDuration', '')
+        TimeRequirement = request.form.get('TimeRequirement', '')
+        SpecificBudget = request.form.get('SpecificBudget', '')
+        Urgency = request.form.get('Urgency', '')
+        Feature = request.form.get('Feature', '')
+        print("Retrieved from main->saveconsultant: ",userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
+              FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills,
+              JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature)
+
+        consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation,
+                                        FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
+                                        LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget,
+                                        Urgency, Feature)
+        consultantObj.FromSevenPostJob(steps, userid)
+
+    return ""
+
+@app.route("/SaveExit", methods=['POST', 'GET'])
+def consultantPagesevenSaveExit():
+    print("in to consultantPagesevenSaveEXIOT")
+    if request.method == 'POST':
+        userid: object = session["userId"]
+        steps = request.form['steps']
+        Plan = request.form.get('plan', '')
+        Title = request.form.get('Title', '')
+        JobCategory = request.form.get('JobCategory', '')
+        SubCategory = request.form.get('SubCategory', '')
+        Description = request.form.get('Description', '')
+        FileName = request.form.get('file', '')
+        FileLocation = request.form.get('FileLocation', '')
+        FileData = request.form.get('FileData', '')
+        ProjectType = request.form.get('ProjectType', '')
+        Describes = request.form.get('Describes', '')
+        WorkType = request.form.get('WorkType', '')
+        ApiToIntegrate = request.form.get('API', '')
+        ProjectStage = request.form.get('ProjectStage', '')
+        ImpSkills = request.form.get('ImpSkills', '')
+        LookingSkills = request.form.get('LookingSkills', '')
+        JobCanSeenBy = request.form.get('JobCanSeenBy', '')
+        PayBy = request.form.get('PayBy', '')
+        ProjectDuration = request.form.get('ProjectDuration', '')
+        TimeRequirement = request.form.get('TimeRequirement', '')
+        SpecificBudget = request.form.get('SpecificBudget', '')
+        Urgency = request.form.get('Urgency', '')
+        Feature = request.form.get('Feature', '')
+        print("Retrieved from main->saveconsultant: ",userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
+              FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills,
+              JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature)
+
+        consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation,
+                                        FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
+                                        LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget,
+                                        Urgency, Feature)
+        consultantObj.FromSevenSaveExit(steps, userid)
+
+    return ""
 
 @app.route('/saveConsultantpage', methods=['POST', 'GET'])
 def saveconsultant():
@@ -184,15 +263,14 @@ def saveconsultant():
     SpecificBudget = request.form.get('SpecificBudget', '')
     Urgency = request.form.get('Urgency', '')
     Feature = request.form.get('Feature', '')
-    Done = request.form.get('Done', '')
     print("Retrieved from main->saveconsultant: ",userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
           FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills,
-          JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature, Done)
+          JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature)
 
     consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation,
                                     FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
                                     LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget,
-                                    Urgency, Feature, Done)
+                                    Urgency, Feature)
     consultantObj.SaveConsultant()
     return steps
 
@@ -262,8 +340,16 @@ def RegistrationPage():
                     sql = "INSERT INTO user ( username,email,password_hash,fullname, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s)"
                     cur.execute(sql, (email, email, paswd, fullname, datetime.datetime.now(), datetime.datetime.now()))
                     connection.commit()
-                    session['userName'] = fullname
+                    ############
+                    userclass = UserModel.CheckUserExsist(email, paswd)
+                    # print("ssssssssssss",userclass)
+                    if userclass != None:
+                        session["isLogin"] = True
+                        session["userId"] = userclass['Id']
+                        session["fullName"] = userclass['fullname']
+                        print("userId for session is : ", session["userId"])
                     return render_template('consultation.html', paramName=fullname)
+                    ######
                 cur.close()
 
     return render_template('landing-page.html')

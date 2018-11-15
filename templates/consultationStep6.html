@@ -29,12 +29,19 @@
 
                 </div>
                 <div class="ibox-content">
-                    <input type="hidden" name="PayBy" id="PayBy" value="Pay by the hour">
+                    <form id="form">
+                        <input type="hidden" name="steps" value="step7">
+                        <input type="hidden" name="PayBy" id="PayBy" value="Pay by the hour">
+                        <input type="hidden" name="ProjectDuration" id="ProjectDuration" value="Less than 1 month">
+                        <input type="hidden" name="TimeRequirement" id="TimeRequirement" value="More than 30 hrs per week">
+                        <input type="text" name="SpecificBudget" id="SpecificBudget" value="0" class="form-control">
+                        <input type="hidden" name="Urgency" id="Urgency" value="This project is urgent. I am willing to pay a higher price.">
                     <h4 class="">How would you like to pay your consultant?</h4>
-                    <div class="row">
+
+                        <div class="row">
                         <div class="col-md-4 tabs-container  text-center mb-3">
                             <a href="javascript:void(0)" onclick="detailsSteps('1')" class="tabone">
-                                <div class="panel-body text-success position-relative">
+                                <div class="panel-body position-relative">
                                     <button type="button" class="btn btn-outline btn-info popular-btn">Popular</button>
                                     <i class="fa fa-clock-o text-success" style="font-size:4rem;"></i>
                                     <h3 class="text-success">Pay by the hour</h3>
@@ -43,7 +50,7 @@
                             </a>
                         </div>
 
-                        <div class="col-md-4 tabs-container  text-center mb-3">
+                        <div class="col-md-4 tabs-container  text-center mb-3 ">
                             <a href="javascript:void(0)" onclick="detailsSteps('2')" class="tabtwo">
                                 <div class="panel-body">
                                     <i class="fa fa-tag text-secondary" style="font-size:4rem;"></i>
@@ -56,12 +63,10 @@
 
                     </div>
                     <div id="divDetails1">
-                        <input type="hidden" name="ProjectDuration" id="ProjectDuration" value="Less than 1 month">
                         <h4 class="mb-3">How long do you expect this project to last? </h4>
                         <div class="row">
-
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="javascript:void(0)" onclick="setDuration('1')">
+                                <a href="javascript:void(0)" onclick="setDuration('1')" class="taboneD">
                                     <div class="panel-body">
                                         <i class="fa fa-calendar-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">Less than 1 month</h3>
@@ -70,7 +75,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="javascript:void(0)" onclick="setDuration('2')">
+                                <a href="javascript:void(0)" onclick="setDuration('2')" class="tabtwoD">
                                     <div class="panel-body">
                                         <i class="fa fa-calendar-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">1 to 3 months</h3>
@@ -79,7 +84,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="javascript:void(0)" onclick="setDuration('3')">
+                                <a href="javascript:void(0)" onclick="setDuration('3')" class="tabthreeD">
                                     <div class="panel-body">
                                         <i class="fa fa-calendar-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">More than 3 months</h3>
@@ -91,9 +96,8 @@
                         </div>
                         <h4 class="mb-1">Do you have a time requirement for this project?</h4>
                         <div class="row">
-                            <input type="hidden" name="TimeRequirement" id="TimeRequirement" value="More than 30 hrs/week">
                             <div class="col-md-4 tabs-container text-success text-center mb-3">
-                                <a href="javascript:void(0)" onclick="setTimeRequirement('1')">
+                                <a href="javascript:void(0)" onclick="setTimeRequirement('1')" class="clsTimeOne">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-success" style="font-size:4rem;"></i>
                                         <h3 class="text-success">More than 30 hrs/week</h3>
@@ -103,7 +107,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="javascript:void(0)" onclick="setTimeRequirement('2')">
+                                <a href="javascript:void(0)" onclick="setTimeRequirement('2')" class="clsTimeTwo">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">Less than 30 hrs/week</h3>
@@ -114,7 +118,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                               <a href="javascript:void(0)" onclick="setTimeRequirement('3')">
+                               <a href="javascript:void(0)" onclick="setTimeRequirement('3')" class="clsTimeThree">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <h3 class="text-secondary">I don't know yet</h3>
@@ -137,7 +141,6 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-addon">$</span>
                                     </div>
-                                    <input type="text" name="SpecificBudget" id="SpecificBudget" class="form-control">
                                     <div class="input-group-append">
                                         <span class="input-group-addon">.00</span>
                                     </div>
@@ -148,7 +151,6 @@
                         </div>
                         <h4 class="mb-1">How urgent is your project?</h4>
                         <div class="row">
-                            <input type="hidden" name="Urgency" id="Urgency" value="This project is urgent. I am willing to pay a higher price.">
                             <div class="col-md-4 tabs-container text-success text-center mb-3">
                                 <a href="javascript:void(0)" onclick="setUrgency('1')">
                                     <div class="panel-body time-div-h">
@@ -185,13 +187,14 @@
                         </div>
 
                     </div>
+                    </form>
                 </div>
 
 
             </div>
             <div class="col-lg-4 mt-3 p-0">
                 <button class="btn btn-lg btn-white" type="button" onclick="previousstpe('step5')">Back</button>
-                <button class="btn btn-lg btn-gray" type="button" type="button" onclick="nextstpe('step7')">Next
+                <button class="btn btn-lg btn-gray" type="submit" type="button" onclick="nextstpe('step7')">Next
                 </button>
             </div>
 
@@ -200,37 +203,64 @@
 </div>
 </div>
 
-
 <script>
     function detailsSteps(step) {
         if (step === '1') {
             $("#divDetails1").show();
             $("#divDetails2").hide();
+
             $(".tabone").find('i').addClass('text-success');
             $(".tabone").find('h3').addClass('text-success');
+            $(".tabtwo").find('fa fa-tag').removeClass('text-success');
             $(".tabtwo").find('i').removeClass('text-success');
             $(".tabtwo").find('h3').removeClass('text-success');
+
             $('#PayBy').val('Pay by the hour');
         }
         if (step === '2') {
             $("#divDetails1").hide();
             $("#divDetails2").show();
+
             $(".tabtwo").find('i').addClass('text-success');
             $(".tabtwo").find('h3').addClass('text-success');
+            $(".tabone").find('fa fa-clock-o').removeClass('text-success');
             $(".tabone").find('i').removeClass('text-success');
             $(".tabone").find('h3').removeClass('text-success');
+
             $('#PayBy').val('Pay a fixed price');
         }
     }
     function setDuration(step) {
         if (step === '1') {
+            $(".taboneD").find('i').addClass('text-success');
+            $(".taboneD").find('h3').addClass('text-success');
+            $(".tabtwoD").find('i').removeClass('text-success');
+            $(".tabtwoD").find('h3').removeClass('text-success');
+            $(".tabthreeD").find('i').removeClass('text-success');
+            $(".tabthreeD").find('h3').removeClass('text-success');
+
             $('#ProjectDuration').val('Less than 1 month');
         }
         if (step === '2') {
+            $(".taboneD").find('i').removeClass('text-success');
+            $(".taboneD").find('h3').removeClass('text-success');
+            $(".tabtwoD").find('i').addClass('text-success');
+            $(".tabtwoD").find('h3').addClass('text-success');
+            $(".tabthreeD").find('i').removeClass('text-success');
+            $(".tabthreeD").find('h3').removeClass('text-success');
+
             $('#ProjectDuration').val('1 to 3 months');
         }
         if (step === '3') {
+            $(".taboneD").find('i').removeClass('text-success');
+            $(".taboneD").find('h3').removeClass('text-success');
+            $(".tabtwoD").find('i').removeClass('text-success');
+            $(".tabtwoD").find('h3').removeClass('text-success');
+            $(".tabthreeD").find('i').addClass('text-success');
+            $(".tabthreeD").find('h3').addClass('text-success');
+
             $('#ProjectDuration').val('More than 3 months');
+        }
         }
     function setTimeRequirement(step) {
         if (step === '1') {
@@ -240,7 +270,20 @@
             $('#TimeRequirement').val('Less than 30 hrs/week');
         }
         if (step === '3') {
-            $('#TimeRequirement').val('I don't know yet');
+            $('#TimeRequirement').val('I dont know yet');
+        }
+        }
+
+    function setUrgency(step) {
+        if (step === '1') {
+            $('#Urgency').val('This project is urgent. I am willing to pay a higher price.');
+        }
+        if (step === '2') {
+            $('#Urgency').val('This project is on the standard queue. I am willing to pay a fair price.');
+        }
+        if (step === '3') {
+            $('#Urgency').val('Time is not a concern for this project. I am willing to pay the minimum possible to complete this project.');
+        }
         }
 
 

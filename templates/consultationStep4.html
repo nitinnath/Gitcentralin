@@ -27,8 +27,8 @@
 
                 </div>
                 <div class="ibox-content border">
-                    <form>
-
+                    <form id="form">
+                        <input type="hidden" name="steps" id="steps" value="step5">
                         <div class="form-group row">
                             <div class="col-lg-12">
                                 <h3 class="mb-4"> What skills and expertise are most important to you?</h3>
@@ -86,7 +86,7 @@
                 <div class="form-group row mt-4">
                     <div class="col-lg-4">
                         <button class="btn btn-lg btn-white" type="button" onclick="previousstpe('step3')">Back</button>
-                        <button class="btn btn-lg btn-gray" type="button" type="button" onclick="nextstpe('step5')">
+                        <button class="btn btn-lg btn-gray" type="submit" type="button" onclick="nextstpe('step5')">
                             Next
                         </button>
                     </div>

@@ -140,7 +140,7 @@ jQuery.fn.serializeObject = function() {
 },1000);
 function SaveRecord(step)
 {
-debugger;
+//debugger;
     var url = 'http://localhost:5000/saveConsultantpage'
     var data = $("#form").serializeObject();
         $.ajax({
@@ -187,7 +187,18 @@ function nextstpe(step)
     }
     if(step === 'step8')
     {
-        $('#divMain').load('consultantstep8');
+        //$('#divMain').load('consultantstep8');
+        var url = 'http://localhost:5000/Postjob'
+        var data = $("#form").serializeObject();
+        $.ajax({
+          type: "POST",
+          url: url,
+          cache: false,
+          data:data,
+          success: function(html){
+            //alert(html);
+          }
+        });
     }
 }
 
@@ -221,10 +232,10 @@ function previousstpe(step)
     {
         $('#divMain').load('consultantstep7');
     }
-    if(step === 'step8')
+    /*if(step === 'step8')
     {
         $('#divMain').load('consultantstep8');
-    }
+    }*/
 }
 
 

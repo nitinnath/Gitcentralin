@@ -32,13 +32,15 @@
                         <input type="hidden" name="steps" value="step4">
                         <input type="hidden" name="Describes" id="Describes" value="">
                         <input type="hidden" name="WorkType" id="WorkType" value="">
+                        <input type="hidden" id="ProjectStage" name="ProjectStage" value="I have Specification">
+                        <input type="hidden" id="API" name="API" value="Social Media">
                         <h4 class="">What type of project do you have?</h4>
                         <div class="row">
                             <div class="col-md-4 tabs-container  text-center mb-3">
                                 <a href="javascript:void(0)" onclick="detailsSteps('1')" class="tabone">
                                     <div class="panel-body ">
-                                        <i class="fa fa-briefcase " style="font-size:4rem;"></i>
-                                        <h3 class="">One-time project</h3>
+                                        <i class="fa fa-briefcase text-secondary text-success" style="font-size:4rem;"></i>
+                                        <h3 class="text-secondary text-success">One-time project</h3>
                                     </div>
                                 </a>
                             </div>
@@ -116,8 +118,7 @@
                             <div class="row">
                                 <div class="col-md-12  mb-3">
                                     <div class="checkbox checkbox-success pl-0">
-                                        <input type="checkbox" name="inlineCheckbox1a" id="inlineCheckbox1a" name="WorkType" value="Developer"
-                                               class="clsConsultantDoing"/>
+                                        <input type="checkbox" name="inlineCheckbox1a" id="inlineCheckbox1a" name="WorkType" value="Developer" class="clsConsultantDoing"/>
                                         <label class="mr-2 mb-0" for="inlineCheckbox1a">
                                             &nbsp;</label><span>Developer</span>
                                     </div>
@@ -170,15 +171,13 @@
 
                         <h4 class="mb-1">Do you need to integrate with any APIs?</h4>
                         <div class="row">
-                            <input type="hidden" id="API" name="API" value="Social Media">
-                            <div class="col-md-4 tabs-container  text-center mb-3 clsApi firstapi"
-                                 onclick="setAPI('1')">
+                            <div class="col-md-4 tabs-container text-center mb-3 clsApi firstapi" onclick="setAPI('1')">
                                 <div class="panel-body pt-4 pb-4">
                                     <h2 class="font-weight-bold text-info ">Social Media</h2>
                                     <h3>Facebook, Google, etc</h3>
                                 </div>
                             </div>
-                            <div class="col-md-4 tabs-container  text-center mb-3 clsApi twotapi" onclick="setAPI('2')">
+                            <div class="col-md-4 tabs-container text-center mb-3 clsApi twotapi" onclick="setAPI('2')">
                                 <div class="panel-body pt-4 pb-4">
                                     <h2 class="font-weight-bold">Cloud storage</h2>
                                     <h3>Dropbox,Google Drive, etc</h3>
@@ -203,20 +202,19 @@
 
                         <h4 class="mb-3">What stage is the project in?</h4>
                         <div class="row">
-                            <input type="hidden" id="ProjectStage" name="ProjectStage" value="I have Specification">
-                            <div class="col-md-4 tabs-container  text-center mb-3" onclick="setStage('1')">
-                                <div class="panel-body text-success clsStage firststage">
+                            <div class="col-md-4 tabs-container text-center mb-3 clsStage firststage" onclick="setStage('1')">
+                                <div class="panel-body text-success">
                                     <i class="fa fa-list" style="font-size:4rem;"></i>
-                                    <h3>I have Specification</h3>
+                                    <h3 >I have Specification</h3>
                                 </div>
                             </div>
-                            <div class="col-md-4 tabs-container  text-center mb-3"  onclick="setStage(2)">
+                            <div class="col-md-4 tabs-container text-center mb-3 clsStage twostage"  onclick="setStage('2')">
                                 <div class="panel-body clsStage twostage">
                                     <i class="fa fa-edit" style="font-size:4rem;"></i>
                                     <h3>I have Designs</h3>
                                 </div>
                             </div>
-                            <div class="col-md-4 tabs-container  text-center mb-3"  onclick="setStage(3)">
+                            <div class="col-md-4 tabs-container text-center mb-3 clsStage threestage"  onclick="setStage('3')">
                                 <div class="panel-body clsStage threestage">
                                     <i class="fa fa-lightbulb-o" style="font-size:4rem;"></i>
 
@@ -233,7 +231,7 @@
     <div class="form-group row mt-4">
         <div class="col-lg-4">
             <button class="btn btn-lg btn-white" type="button" onclick="previousstpe('step2')">Back</button>
-            <button class="btn btn-lg btn-gray" type="button" type="button" onclick="nextstpe('step4')">Next</button>
+            <button class="btn btn-lg btn-gray" type="submit" type="button" onclick="nextstpe('step4')">Next</button>
 
         </div>
 
@@ -252,6 +250,7 @@
             }
         });
         $("#Describes").val(arr.join());
+        $("#WorkType").val('');
  });
  /* $('.clsConsultantDoing').click(function(){
       var arr = [];
@@ -272,6 +271,7 @@
                 arr.push($(this).val());
             }
         });
+        $("#Describes").val('');
         $("#WorkType").val(arr.join());
  });
 
@@ -285,37 +285,72 @@ function setAPI(no)
     }
     if(no === '2')
     {
-    $('#API').val('Cloud storage');
+        $('#API').val('Cloud storage');
         $('.twotapi').find('.font-weight-bold').addClass('text-info');
     }
     if(no === '3')
     {
-    $('#API').val('Payment Processor');
+        $('#API').val('Payment Processor');
         $('.threeapi').find('.font-weight-bold').addClass('text-info');
     }
     if(no === '4')
     {
-    $('#API').val('Other');
+        $('#API').val('Other');
         $('.fourapi').find('.font-weight-bold').addClass('text-info');
     }
 }
 function setStage(no)
 {
     $('.clsStage').removeClass('text-info');
+    $('.clsStage').removeClass('text-success');
+    $('.panel-body').removeClass('text-success');
     if(no === '1')
     {
         $('#ProjectStage').val('I have Specification');
-        $('.firststage').addClass('text-info');
+
+        $('.firststage').addClass('text-success');
+        $('.firststage').find('.fa fa-list').addClass('text-success');
+        $(".firststage").find('h3').addClass('text-success');
+
+        $('.twostage').find('.fa fa-edit').removeClass('text-success');
+        $('.twostage').removeClass('text-success');
+        $(".twostage").find('h3').removeClass('text-success');
+
+        $('.threestage').find('.fa fa-lightbulb-o').removeClass('text-success');
+        $('.threestage').removeClass('text-success');
+        $(".threestage").find('h3').removeClass('text-success');
     }
     if(no === '2')
     {
-    $('#ProjectStage').val('I have Designs');
-        $('.twostage').find('.font-weight-bold').addClass('text-info');
+        $('#ProjectStage').val('I have Designs');
+
+        $('.twostage').addClass('text-success');
+        $('.twostage').find('.fa fa-edit').addClass('text-success');
+        $(".twostage").find('h3').addClass('text-success');
+
+        $('.firststage').find('.fa fa-list').removeClass('text-success');
+        $('.firststage').removeClass('text-success');
+        $(".firststage").find('h3').removeClass('text-success');
+
+        $('.threestage').find('.fa fa-lightbulb-o').removeClass('text-success');
+        $('.threestage').removeClass('text-success');
+        $(".threestage").find('h3').removeClass('text-success');
     }
     if(no === '3')
     {
-    $('#ProjectStage').val('I just have a concept');
-        $('.threestage').find('.font-weight-bold').addClass('text-info');
+        $('#ProjectStage').val('I just have a concept');
+
+        $('.threestage').addClass('text-success');
+        $('.threestage').find('.fa fa-lightbulb-o').addClass('text-success');
+        $(".threestage").find('h3').addClass('text-success');
+
+        $('.twostage').find('.fa fa-edit').removeClass('text-success');
+        $('.twostage').removeClass('text-success');
+        $(".twostage").find('h3').removeClass('text-success');
+
+        $('.firststage').find('.fa fa-list').removeClass('text-success');
+        $('.firststage').removeClass('text-success');
+        $(".firststage").find('h3').removeClass('text-success');
     }
 }
     function detailsSteps(step) {

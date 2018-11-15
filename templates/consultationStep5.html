@@ -29,29 +29,33 @@
 
                 </div>
                 <div class="ibox-content">
-                    <input type="hidden" name="JobCanSeenBy" id="JobCanSeenBy" value="Require Professional Project Management">
-                    <h4 class="">Who can see your job?</h4>
-                    <div class="row">
-                        <div class="col-md-4 tabs-container  text-center mb-3">
-                            <a href="javascript:void(0)" onclick="setJobCanSeenBy('1')">
-                                <div class="panel-body text-success">
-                                    <i class="fa fa-briefcase text-success " style="font-size:4rem;"></i>
-                                    <h3 class="text-success">Require Professional Project Management</h3>
-                                    <p>for maximum project efficiency.</p>
+                    <form id="form">
+                        <input type="hidden" name="steps" value="step6">
+                        <input type="hidden" name="JobCanSeenBy" id="JobCanSeenBy"
+                               value="Require Professional Project Management">
+                        <h4 class="">Who can see your job?</h4>
+                        <div class="row">
+                            <div class="col-md-4 tabs-container  text-center mb-3 clsjob firstjob">
+                                <a href="javascript:void(0)" onclick="setJobCanSeenBy('1')" class="setone">
+                                    <div class="panel-body">
+                                        <i class="fa fa-briefcase text-success clsjob" style="font-size:4rem;"></i>
+                                        <h3 class="text-success">Require Professional Project Management</h3>
+                                        <p>for maximum project efficiency.</p>
 
-                                </div>
-                            </a>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 tabs-container  text-center mb-3 clsjob twojob">
+                                <a href="javascript:void(0)" onclick="setJobCanSeenBy('2')" class="settwo">
+                                    <div class="panel-body">
+                                        <i class="fa fa-list-alt text-secondary clsjob" style="font-size:4rem;"></i>
+                                        <h3 class="text-secondary">Handle the Development Process by User</h3>
+                                        <p>for experienced project managers.</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-md-4 tabs-container  text-center mb-3">
-                            <a href="javascript:void(0)" onclick="setJobCanSeenBy('2')">
-                                <div class="panel-body">
-                                    <i class="fa fa-list-alt text-secondary" style="font-size:4rem;"></i>
-                                    <h3 class="text-secondary">Handle the Development Process by User</h3>
-                                    <p>for experienced project managers.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -59,20 +63,41 @@
     <div class="form-group row mt-4">
         <div class="col-lg-4">
             <button class="btn btn-lg btn-white" type="button" onclick="previousstpe('step4')">Back</button>
-            <button class="btn btn-lg btn-gray" type="button" type="button" onclick="nextstpe('step6')">Next</button>
+            <button class="btn btn-lg btn-gray" type="submit" type="button" onclick="nextstpe('step6')">Next</button>
         </div>
 
 
     </div>
 </div>
 <script>
-    finction setJobCanSeenBy(step){
+    function setJobCanSeenBy(step){
+
+        $('.clsjob').removeClass('text-info');
+        $('.clsjob').removeClass('text-success');
+
         if(step=='1'){
-        $("#ProjectType").val('Require Professional Project Management');
+        $("#JobCanSeenBy").val('Require Professional Project Management');
+
+        $('.setone').addClass('text-success');
+        $('.setone').find('i').addClass('text-success');
+        $('.setone').find('h3').addClass('text-success');
+
+        $('.settwo').find('i').removeClass('text-success');
+        $('.settwo').find('h3').removeClass('text-success');
+        $('.settwo').removeClass('text-success');
         }
         if(step=='2'){
-        $("#ProjectType").val('Handle the Development Process by User');
+        $("#JobCanSeenBy").val('Handle the Development Process by User');
+
+        $('.settwo').addClass('text-success');
+        $('.settwo').find('i').addClass('text-success');
+        $('.settwo').find('h3').addClass('text-success');
+
+        $('.setone').removeClass('text-success');
+        $('.setone').find('i').removeClass('text-success');
+        $('.setone').find('h3').removeClass('text-success');
         }
     }
+
 
 </script>
