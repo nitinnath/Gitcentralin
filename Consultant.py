@@ -1,12 +1,13 @@
 from connection import connection
 import datetime
 
+global data_dic
 
 class ConsultantClass:
 
     def __init__(self, UserId, Steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation, FileData, ProjectType,
                  Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills, JobCanSeenBy, PayBy, ProjectDuration,
-                 TimeRequirement, SpecificBudget, Urgency, Feature):
+                 TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton):
 
         #self.type = type
         self.UserId=UserId
@@ -33,7 +34,7 @@ class ConsultantClass:
         self.SpecificBudget=SpecificBudget
         self.Urgency=Urgency
         self.Feature=Feature
-        #self.PostJob=PostJob
+        self.sevenbutton=sevenbutton
         #self.SaveExit=SaveExit
 
     def getAllData(self):
@@ -48,6 +49,8 @@ class ConsultantClass:
         with connection.cursor() as cur:
             cur.execute("select * from consultant where UserId = '" + str(self.UserId) + "'")
             data = cur.fetchone()
+            global data_dic
+            data_dic = data
             cur.close()
             print("data retrieved from getConsultantById: ", data)
             return data
@@ -59,7 +62,6 @@ class ConsultantClass:
                 sql = "INSERT INTO consultant (Plan, UserId, LastStep, created_at, updated_at) VALUES (%s, %s, %s, %s, %s)"
                 cursor.execute(sql, (self.Plan, self.UserId, self.Steps, datetime.datetime.now(), datetime.datetime.now()))
                 connection.commit()
-                print("record inserted sccsssssssssssssssss")
                 cursor.close()
         finally:
             return ""
@@ -139,6 +141,13 @@ class ConsultantClass:
                 print("record saved 6 steps Pay projct duration and all")
                 cursor.close()
         finally:
+            '''with connection.cursor() as cur:
+                cur.execute("select * from consultant where UserId = '" + str(self.UserId) + "'")
+                data = cur.fetchone()
+                global data_dic
+                data_dic = data
+                cur.close()
+                print("DATA FOR DICTIOARY: ", data_dic)'''
             return ""
 
     def updateOnReviewConsultantLink(self):
@@ -153,10 +162,13 @@ class ConsultantClass:
             return ""
 
     def FromSevenPostJob(self, steps, userid):
+        Feature=self.Feature
+        print("FromSevenPostJob Feature: ", Feature)
+        print("FromSevenPostJob function")
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set PostJob = %s, LastStep=%s, updated_at=%s Where UserId = %s"
-                cursor.execute(sql, ('1', steps, datetime.datetime.now(), userid))
+                sql = "UPDATE consultant set Feature = %s, PostJob = %s, LastStep=%s, updated_at=%s Where UserId = %s"
+                cursor.execute(sql, (Feature, '1', steps, datetime.datetime.now(), userid))
                 connection.commit()
                 print("record Posted a Job")
                 cursor.close()
@@ -164,11 +176,13 @@ class ConsultantClass:
             return ""
 
     def FromSevenSaveExit(self, steps, userid):
+        Feature=self.Feature
+        print("FromSevenSaveExit Feature: ", Feature)
+        print("FromSevenSaveExit function")
         try:
-            print("save exit function")
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set SaveExit = %s, LastStep=%s, updated_at=%s Where UserId = %s"
-                cursor.execute(sql, ('1', steps, datetime.datetime.now(), userid))
+                sql = "UPDATE consultant set Feature = %s, SaveExit = %s, LastStep=%s, updated_at=%s Where UserId = %s"
+                cursor.execute(sql, (Feature, '1', steps, datetime.datetime.now(), userid))
                 connection.commit()
                 print("record SAVE and exit")
                 cursor.close()
@@ -177,8 +191,8 @@ class ConsultantClass:
 
     def SaveConsultant(self):
         consultantRecords = ConsultantClass.getConsultantById(self)
+        print("from SaveConsultant steps is : ", self.Steps)
         if self.Steps == 'step1':
-            print("from SaveConsultant steps is : ", self.Steps)
             if consultantRecords is not None:
                 ConsultantClass.updateFirstStepConsultantLink(self)
             else:

@@ -11,6 +11,8 @@ from Consultant import ConsultantClass
 from personallinks import PersonalLink
 from userFile import UserModel
 
+global data_dic
+
 app = Flask(__name__)
 
 
@@ -155,7 +157,7 @@ def consultantPagesix():
 
 @app.route("/consultantstep7")
 def consultantPageseven():
-    return render_template('consultationStep7.html')
+    return render_template('consultationStep7.html', paramName=data_dic)
 
 @app.route("/PostJob", methods=['POST', 'GET'])
 def consultantPagesevenPostJob():
@@ -184,20 +186,27 @@ def consultantPagesevenPostJob():
         TimeRequirement = request.form.get('TimeRequirement', '')
         SpecificBudget = request.form.get('SpecificBudget', '')
         Urgency = request.form.get('Urgency', '')
-        Feature = request.form.get('Feature', '')
+        Feature = request.form['Feature']
+        sevenbutton = request.form['sevenbutton']
+
         print("Retrieved from main->saveconsultant: ",userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
               FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills,
-              JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature)
+              JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton)
 
         consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation,
                                         FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
                                         LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget,
-                                        Urgency, Feature)
-        consultantObj.FromSevenPostJob(steps, userid)
+                                        Urgency, Feature, sevenbutton)
+        if sevenbutton=='PostJob':
+            print("Postjob if")
+            consultantObj.FromSevenPostJob(steps, userid)
+        elif sevenbutton=='SaveExit':
+            print("SaveExit if")
+            consultantObj.FromSevenSaveExit(steps, userid)
 
     return ""
 
-@app.route("/SaveExit", methods=['POST', 'GET'])
+'''@app.route("/SaveExit", methods=['POST', 'GET'])
 def consultantPagesevenSaveExit():
     print("in to consultantPagesevenSaveEXIOT")
     if request.method == 'POST':
@@ -236,6 +245,7 @@ def consultantPagesevenSaveExit():
         consultantObj.FromSevenSaveExit(steps, userid)
 
     return ""
+'''
 
 @app.route('/saveConsultantpage', methods=['POST', 'GET'])
 def saveconsultant():
@@ -262,16 +272,20 @@ def saveconsultant():
     TimeRequirement = request.form.get('TimeRequirement', '')
     SpecificBudget = request.form.get('SpecificBudget', '')
     Urgency = request.form.get('Urgency', '')
-    Feature = request.form.get('Feature', '')
+    Feature='NO'
+    sevenbutton='0'
     print("Retrieved from main->saveconsultant: ",userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
           FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills,
-          JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature)
+          JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton)
 
     consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation,
                                     FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
                                     LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget,
-                                    Urgency, Feature)
+                                    Urgency, Feature, sevenbutton)
     consultantObj.SaveConsultant()
+    global data_dic
+    data_dic= consultantObj.getConsultantById()
+    print("DATA FOR DICTIOARY: ", data_dic)
     return steps
 
 

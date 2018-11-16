@@ -17,162 +17,99 @@
         <div class="col-lg-12">
             <div class="ibox">
                 <form class="m-t" role="form" action="http://localhost:5000/PostJob" method="post">
-                <!-- div class="text-left pr-0">
-                    <div class="col-md-12 p-0">
-                        <h1 class="float-left">Review</h1>
-                        <button type="button" class="btn btn-w-m btn-primary float-right font-bold mt-4">Post a job
-                        </button>
-                    </div>
-                </div-->
-                <div class="ibox-content">
-                    <div class="col-md-12">
+                    <input type="hidden" name="steps" value="step8">
+                    <input type="hidden" name="sevenbutton" id="sevenbutton" value="NULL">
+                    <input type="hidden" name="Feature" id="Feature" value="NO">
+                    <!-- div class="text-left pr-0">
                         <div class="col-md-12 p-0">
-                            <input type="hidden" name="steps" value="step8">
-                            <input type="hidden" name="Feature" value="YES">
-                            <h2 class="font-bold mb-2 float-left">Title</h2>
-                            <a class="btn btn-primary rounded-circle float-right"
-                               style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
-                        <div class="well mt-5">
-                            <h3> Job Post Name </h3>
-                            Auto scraping on fincancial website needed!
+                            <h1 class="float-left">Review</h1>
+                            <button type="button" class="btn btn-w-m btn-primary float-right font-bold mt-4">Post a job
+                            </button>
                         </div>
-                        <div class="well mt-5">
-                            <h3> Job Category </h3>
-                            Web, Mobile &amp; Software Dev > Web Development
-                        </div>
-                    </div>
-                </div>
-                <div class="ibox-content mt-4">
-                    <div class="col-md-12">
-                        <div class="col-md-12 p-0">
-                            <h2 class="font-bold mb-2 float-left">Description</h2>
-                            <a class="btn btn-primary rounded-circle float-right"
-                               style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
-                        <div class="well mt-5">
-                            <h3> Description </h3>
-                            It has to be great. It has to be great. It has to be great. It has to be great. It has to be
-                            great. It has to be great. It has to be great.
-                        </div>
-                    </div>
-                </div>
-                <div class="ibox-content mt-4">
-                    <div class="col-md-12">
-                        <div class="col-md-12 p-0">
-                            <h2 class="font-bold mb-2 float-left">Detail</h2>
-                            <a class="btn btn-primary rounded-circle float-right"
-                               style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-12 p-0">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="well mt-5">
-                                        <h3> Type of Project </h3>
-                                        I am not sure.
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="well mt-5">
-                                        <h3> Do you need to integrate with any API's? </h3>
-                                        Payment Processor, Other
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="well mt-5">
-                                        <h3> Project Lifecycle </h3>
-                                        I have specifications.
-                                    </div>
-                                </div>
+                    </div-->
+                    <div class="ibox-content">
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-0">
+                                <h2 class="font-bold mb-2 float-left">Title</h2>
+                                <a href="consultantstep1" class="btn btn-primary rounded-circle float-right"
+                                   style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
+                            <div class="well mt-5">
+                                <h3> Job Post Name </h3>
+                                {{ paramName['Title'] }}
+                            </div>
+                            <div class="well mt-5">
+                                <h3> Job Category </h3>
+                                {{ paramName['JobCategory'] }} > {{ paramName['SubCategory'] }}
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="ibox-content">
-                    <h2 class="font-bold">Screening Questions</h2>
-
-                    <div class="well mt-5">
-                        <h3> Screening Questions </h3>
-                        Do you have any question about the job description?
-                    </div>
-                </div>
-                <div class="ibox-content mt-4">
-                    <div class="col-md-12">
-                        <div class="col-md-12 p-0">
-                            <h2 class="font-bold mb-2 float-left">Visibility</h2>
-                            <a class="btn btn-primary rounded-circle float-right"
-                               style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-12 p-0">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="well mt-5">
-                                        <h3> Job Posting Visibility </h3>
-                                        Freelancers using Centralin and public serach engines can find this job
-                                    </div>
-                                </div>
-
+                    <div class="ibox-content mt-4">
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-0">
+                                <h2 class="font-bold mb-2 float-left">Description</h2>
+                                <a href="consultantstep2" class="btn btn-primary rounded-circle float-right"
+                                   style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
+                            <div class="well mt-5">
+                                <h3> Description </h3>
+                                 {{ paramName['Description'] }}
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="ibox-content mt-4">
-                    <div class="col-md-12">
-                        <div class="col-md-12 p-0">
-                            <h2 class="font-bold mb-2 float-left">Budget</h2>
-                            <a class="btn btn-primary rounded-circle float-right"
-                               style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-12 p-0">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="well mt-5">
-                                        <h3> Hourly Fixed Price </h3>
-                                        Pay a fixed price
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="well mt-5">
-                                        <h3> Experience Level </h3>
-                                        Expert
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="well mt-5">
-                                        <h3> Budget </h3>
-                                        $100
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ibox-content mt-4">
-                    <div class="col-md-12">
-                        <div class="col-md-12 p-0">
-                            <h2 class="font-bold mb-2 float-left"><i class="fa fa-star text-success"
-                                                                     style="font-size: 14px;"></i> Featured Job</h2>
+                    <div class="ibox-content mt-4">
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-0">
+                                <h2 class="font-bold mb-2 float-left">Detail</h2>
+                                <a href="consultantstep3" class="btn btn-primary rounded-circle float-right"
+                                   style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
                             <div class="clearfix"></div>
                             <div class="col-md-12 p-0">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="well mt-5">
-                                            <p><strong>Make your job post stand out!</strong> For a one-time fee of 1kj,
-                                                we will highlight your post and
-                                                top talent will receive special discounts to work on your project.</p>
-                                            <ul>
-                                                <li>Double your reach.</li>
-                                                <li>Hire in half the time.</li>
-                                            </ul>
-                                            <div class="checkbox checkbox-success pl-0">
-                                                <input type="checkbox" name="Feature" id="Feature"
-                                                       value="Yes, I want to feature my job for 1kj.">
-                                                <label class="mr-2 mb-0 float-left ml-3"
-                                                       for="Feature"></label><span
-                                                    class="font-bold float-left ml-4">Yes, I want to feature my job for 1kj.</span>
-                                            </div>
-                                            <p class="ml-4">Charge my payment method on file. I accept these <a href=""
-                                                                                                                class="text-success">Terms
-                                                of Service</a></p>
+                                            <h3> Type of Project </h3>
+                                            {{ paramName['ProjectType'] }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="well mt-5">
+                                            <h3> Do you need to integrate with any API's? </h3>
+                                            {{ paramName['ApiToIntegrate'] }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="well mt-5">
+                                            <h3> Project Stage </h3>
+                                            {{ paramName['ProjectStage'] }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="col-md-12 p-0">
+                                <h2 class="font-bold mb-2 float-left">Title</h2>
+                                <a href="consultantstep4" class="btn btn-primary rounded-circle float-right"
+                                   style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div><h2 class="font-bold">Expertise</h2>
+
+                        <div class="well mt-5">
+                            <h3> Skills looking for </h3>
+                            {{ paramName['LookingSkills'] }}
+                        </div>
+                    </div>
+                    <div class="ibox-content mt-4">
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-0">
+                                <h2 class="font-bold mb-2 float-left">Project Management</h2>
+                                <a href="consultantstep5" class="btn btn-primary rounded-circle float-right"
+                                   style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-12 p-0">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="well mt-5">
+                                            <h3> Job Posting Visibility </h3>
+                                            {{ paramName['JobCanSeenBy'] }}
                                         </div>
                                     </div>
 
@@ -180,22 +117,101 @@
                             </div>
                         </div>
                     </div>
+                    <div class="ibox-content mt-4">
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-0">
+                                <h2 class="font-bold mb-2 float-left">Budget</h2>
+                                <a href="consultantstep6" class="btn btn-primary rounded-circle float-right"
+                                   style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-12 p-0">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="well mt-5">
+                                            <h3> Hourly Fixed Price </h3>
+                                            {{ paramName['PayBy'] }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="well mt-5">
+                                            <h3> Project Duration </h3>
+                                            {{ paramName['ProjectDuration'] }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="well mt-5">
+                                            <h3> Budget </h3>
+                                            {{ paramName['SpecificBudget'] }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="well mt-5">
+                                            <h3> Time Required for Project</h3>
+                                            {{ paramName['TimeRequirement'] }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="well mt-5">
+                                            <h3> Urgency of Project </h3>
+                                            {{ paramName['Urgency'] }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ibox-content mt-4">
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-0">
+                                <h2 class="font-bold mb-2 float-left"><i class="fa fa-star text-success"
+                                                                         style="font-size: 14px;"></i> Featured Job</h2>
+                                <div class="clearfix"></div>
+                                <div class="col-md-12 p-0">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="well mt-5">
+                                                <p><strong>Make your job post stand out!</strong> For a one-time fee of
+                                                    1kj,
+                                                    we will highlight your post and
+                                                    top talent will receive special discounts to work on your project.
+                                                </p>
+                                                <ul>
+                                                    <li>Double your reach.</li>
+                                                    <li>Hire in half the time.</li>
+                                                </ul>
+                                                <div class="checkbox checkbox-success pl-0">
+                                                    <input type="checkbox" name="Feature1" id="Feature1">
+                                                    <label class="mr-2 mb-0 float-left ml-3"
+                                                           for="Feature1"></label><span
+                                                        class="font-bold float-left ml-4">Yes, I want to feature my job for 1kj.</span>
+                                                </div>
+                                                <p class="ml-4">Charge my payment method on file. I accept these <a
+                                                        href="" class="text-success">Terms
+                                                    of Service</a></p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                </div>
+                    </div>
 
-                <div class="form-group row mt-4">
+                    <div class="form-group row mt-4">
                         <div class="col-lg-4">
-                            <button type="submit" class="btn btn-primary block full-width m-b">Post this job</button>
-                            <a href="SaveExit" class="btn btn-sm btn-white btn-block">Save &amp; Exit</a>
+                            <button type="submit" class="btn btn-lg btn-success" onclick="postjob()">Post this job</button>
+                            <button type="submit" class="btn btn-lg btn-white ml-2" onclick="savejob()">Save &amp; Exit</button>
                             <!--button class="btn btn-lg btn-success" type="submit" onclick="nextstpe('step8')">Post this Job</button>
                             <button class="btn btn-lg btn-white ml-2" type="submit" onclick="nextstpe('step8')">Save &amp; Exit</button-->
                         </div>
-                </div>
-                <!--div class="col-lg-4 p-0 mt-3">
-                    <a href="#" class="btn btn-lg btn-success">Post this Job</a>
-                    <a href="" class="btn btn-lg btn-white ml-2">Save &amp; Exit</a>
-                </div-->
+                    </div>
+                    <!--div class="col-lg-4 p-0 mt-3">
+                        <a href="#" class="btn btn-lg btn-success">Post this Job</a>
+                        <a href="" class="btn btn-lg btn-white ml-2">Save &amp; Exit</a>
+                    </div-->
 
                 </form>
             </div>
@@ -207,18 +223,22 @@
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('input[type="checkbox"]').click(function(){
-            if($(this).is(":checked")){
-                alert("Checkbox is checked.");
-                $("#Feature").val('YES');
-            }
-            else if($(this).is(":not(:checked)")){
-                alert("Checkbox is unchecked.");
+    function postjob(){
+        $("#sevenbutton").val('PostJob');
+        if($('input[type="checkbox"]').is(":checked")){
+            $("#Feature").val('YES');
+        }
+        if($('input[type="checkbox"]').is(":not(:checked)")){
                 $("#Feature").val('NO');
-            }
-        });
-    });
-
-
+        }
+    }
+    function savejob(){
+        $("#sevenbutton").val('SaveExit');
+        if($('input[type="checkbox"]').is(":checked")){
+            $("#Feature").val('YES');
+        }
+        if($('input[type="checkbox"]').is(":not(:checked)")){
+                $("#Feature").val('NO');
+        }
+    }
 </script>
