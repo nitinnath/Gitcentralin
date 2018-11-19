@@ -31,15 +31,19 @@
                         <div class="col-md-12">
                             <div class="col-md-12 p-0">
                                 <h2 class="font-bold mb-2 float-left">Title</h2>
-                                <a href="consultantstep1" class="btn btn-primary rounded-circle float-right"
-                                   style="font-size: 16px; color:#ffffff;"> <i class="fa fa-edit "></i> </a></div>
+                                <button class="btn btn-primary rounded-circle float-right" type="button" style="font-size: 16px; color:#ffffff;"
+                                        onclick="nextstpe('step1')"><i class="fa fa-edit "></i>
+                                </button>
+                                </div>
                             <div class="well mt-5">
                                 <h3> Job Post Name </h3>
                                 {{ paramName['Title'] }}
                             </div>
                             <div class="well mt-5">
                                 <h3> Job Category </h3>
-                                {{ paramName['JobCategory'] }} > {{ paramName['SubCategory'] }}
+                                {{ paramName['JobCategory'] }} <hr>
+                                <h4> Job Sub Category </h4>
+                                {{ paramName['SubCategory'] }}
                             </div>
                         </div>
                     </div>
@@ -240,5 +244,9 @@
         if($('input[type="checkbox"]').is(":not(:checked)")){
                 $("#Feature").val('NO');
         }
+    }
+    function EditTitle(){
+    $('#divMain').load('consultantstep1');
+    document.getElementById("Title").value = "gfj";
     }
 </script>

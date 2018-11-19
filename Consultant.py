@@ -141,14 +141,13 @@ class ConsultantClass:
                 print("record saved 6 steps Pay projct duration and all")
                 cursor.close()
         finally:
-            '''with connection.cursor() as cur:
+            with connection.cursor() as cur:
                 cur.execute("select * from consultant where UserId = '" + str(self.UserId) + "'")
                 data = cur.fetchone()
                 global data_dic
                 data_dic = data
                 cur.close()
-                print("DATA FOR DICTIOARY: ", data_dic)'''
-            return ""
+            return data_dic
 
     def updateOnReviewConsultantLink(self):
         try:

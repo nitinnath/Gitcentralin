@@ -133,7 +133,7 @@
                     <div id="divDetails2">
 
                         <h4 class="mb-3">Do you have specfic budget? </h4>
-                        <div class="row">
+                        <div class="row" id="budgetrow">
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
                                 <div class="input-group m-b">
@@ -151,8 +151,8 @@
                         </div>
                         <h4 class="mb-1">How urgent is your project?</h4>
                         <div class="row">
-                            <div class="col-md-4 tabs-container text-success text-center mb-3">
-                                <a href="javascript:void(0)" onclick="setUrgency('1')">
+                            <div class="col-md-4 tabs-container text-success text-center mb-3 ">
+                                <a href="javascript:void(0)" onclick="setUrgency('1')" class="urgencyOne">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
@@ -163,7 +163,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="javascript:void(0)" onclick="setUrgency('2')">
+                                <a href="javascript:void(0)" onclick="setUrgency('2')" class="urgencyTwo">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
@@ -174,7 +174,7 @@
                             </div>
 
                             <div class="col-md-4 tabs-container  text-center mb-3">
-                                <a href="javascript:void(0)" onclick="setUrgency('3')">
+                                <a href="javascript:void(0)" onclick="setUrgency('3')" class="urgencyThree">
                                     <div class="panel-body time-div-h">
                                         <i class="fa fa-clock-o text-secondary" style="font-size:4rem;"></i>
                                         <p class="text-secondary">Time is not a concern for this project. I am willing
@@ -205,15 +205,17 @@
 
 <script>
     function detailsSteps(step) {
+        $("#divDetails1").show();
         if (step === '1') {
             $("#divDetails1").show();
             $("#divDetails2").hide();
-
             $(".tabone").find('i').addClass('text-success');
             $(".tabone").find('h3').addClass('text-success');
+            $(".tabone").find('p').addClass('text-success');
             $(".tabtwo").find('fa fa-tag').removeClass('text-success');
             $(".tabtwo").find('i').removeClass('text-success');
             $(".tabtwo").find('h3').removeClass('text-success');
+            $(".tabtwo").find('p').removeClass('text-success');
 
             $('#PayBy').val('Pay by the hour');
         }
@@ -223,9 +225,11 @@
 
             $(".tabtwo").find('i').addClass('text-success');
             $(".tabtwo").find('h3').addClass('text-success');
+            $(".tabtwo").find('p').addClass('text-success');
             $(".tabone").find('fa fa-clock-o').removeClass('text-success');
             $(".tabone").find('i').removeClass('text-success');
             $(".tabone").find('h3').removeClass('text-success');
+            $(".tabone").find('p').removeClass('text-success');
 
             $('#PayBy').val('Pay a fixed price');
         }
@@ -265,24 +269,85 @@
     function setTimeRequirement(step) {
         if (step === '1') {
             $('#TimeRequirement').val('More than 30 hrs/week');
+
+            $(".clsTimeOne").find('i').addClass('text-success');
+            $(".clsTimeOne").find('h3').addClass('text-success');
+            $(".clsTimeOne").find('p').addClass('text-success');
+            $(".clsTimeTwo").find('i').removeClass('text-success');
+            $(".clsTimeTwo").find('h3').removeClass('text-success');
+            $(".clsTimeTwo").find('p').removeClass('text-success');
+            $(".clsTimeThree").find('i').removeClass('text-success');
+            $(".clsTimeThree").find('h3').removeClass('text-success');
+            $(".clsTimeThree").find('p').removeClass('text-success');
         }
         if (step === '2') {
             $('#TimeRequirement').val('Less than 30 hrs/week');
+
+            $(".clsTimeTwo").find('i').addClass('text-success');
+            $(".clsTimeTwo").find('h3').addClass('text-success');
+            $(".clsTimeTwo").find('p').addClass('text-success');
+            $(".clsTimeOne").find('i').removeClass('text-success');
+            $(".clsTimeOne").find('h3').removeClass('text-success');
+            $(".clsTimeOne").find('p').removeClass('text-success');
+            $(".clsTimeThree").find('i').removeClass('text-success');
+            $(".clsTimeThree").find('h3').removeClass('text-success');
+            $(".clsTimeThree").find('p').removeClass('text-success');
         }
         if (step === '3') {
             $('#TimeRequirement').val('I dont know yet');
+
+            $(".clsTimeThree").find('i').addClass('text-success');
+            $(".clsTimeThree").find('h3').addClass('text-success');
+            $(".clsTimeThree").find('p').addClass('text-success');
+            $(".clsTimeOne").find('i').removeClass('text-success');
+            $(".clsTimeOne").find('h3').removeClass('text-success');
+            $(".clsTimeOne").find('p').removeClass('text-success');
+            $(".clsTimeTwo").find('i').removeClass('text-success');
+            $(".clsTimeTwo").find('h3').removeClass('text-success');
+            $(".clsTimeTwo").find('p').removeClass('text-success');
         }
         }
 
     function setUrgency(step) {
         if (step === '1') {
             $('#Urgency').val('This project is urgent. I am willing to pay a higher price.');
+
+            $(".urgencyOne").find('i').addClass('text-success');
+            $(".urgencyOne").find('h3').addClass('text-success');
+            $(".urgencyOne").find('p').addClass('text-success');
+            $(".urgencyTwo").find('i').removeClass('text-success');
+            $(".urgencyTwo").find('h3').removeClass('text-success');
+            $(".urgencyTwo").find('p').removeClass('text-success');
+            $(".urgencyThree").find('i').removeClass('text-success');
+            $(".urgencyThree").find('h3').removeClass('text-success');
+            $(".urgencyThree").find('p').removeClass('text-success');
+
         }
         if (step === '2') {
             $('#Urgency').val('This project is on the standard queue. I am willing to pay a fair price.');
+
+            $(".urgencyTwo").find('i').addClass('text-success');
+            $(".urgencyTwo").find('h3').addClass('text-success');
+            $(".urgencyTwo").find('p').addClass('text-success');
+            $(".urgencyOne").find('i').removeClass('text-success');
+            $(".urgencyOne").find('h3').removeClass('text-success');
+            $(".urgencyOne").find('p').removeClass('text-success');
+            $(".urgencyThree").find('i').removeClass('text-success');
+            $(".urgencyThree").find('h3').removeClass('text-success');
+            $(".urgencyThree").find('p').removeClass('text-success');
         }
         if (step === '3') {
             $('#Urgency').val('Time is not a concern for this project. I am willing to pay the minimum possible to complete this project.');
+
+            $(".urgencyThree").find('i').addClass('text-success');
+            $(".urgencyThree").find('h3').addClass('text-success');
+            $(".urgencyThree").find('p').addClass('text-success');
+            $(".urgencyOne").find('i').removeClass('text-success');
+            $(".urgencyOne").find('h3').removeClass('text-success');
+            $(".urgencyOne").find('p').removeClass('text-success');
+            $(".urgencyTwo").find('i').removeClass('text-success');
+            $(".urgencyTwo").find('h3').removeClass('text-success');
+            $(".urgencyTwo").find('p').removeClass('text-success');
         }
         }
 

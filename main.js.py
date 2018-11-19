@@ -3,6 +3,7 @@ from functools import wraps
 import datetime
 import jwt, os
 import pymysql.cursors
+import self
 from flask import Flask, redirect, request, render_template, session, flash, url_for
 from werkzeug.security import *
 from werkzeug.utils import secure_filename
@@ -12,7 +13,7 @@ from personallinks import PersonalLink
 from userFile import UserModel
 
 global data_dic
-
+global uid
 app = Flask(__name__)
 
 
@@ -72,6 +73,8 @@ def login():
             session["isLogin"] = True
             session["userId"] = userclass['Id']
             session["fullName"] = userclass['fullname']
+            global uid
+            uid = str(session["userId"])
             return redirect('/consultant')
         else:
             session["isLogin"] = False
@@ -123,6 +126,10 @@ def consultantPage():
     else:
         # print("userrrr is authored")
         return render_template('consultation.html', paramName=session['fullName'])
+
+@app.route("/description")
+def DescriptionPage():
+    return render_template('description.html')
 
 
 @app.route("/consultantstep1")
@@ -204,7 +211,7 @@ def consultantPagesevenPostJob():
             print("SaveExit if")
             consultantObj.FromSevenSaveExit(steps, userid)
 
-    return ""
+    return render_template('consultation.html', paramName=session['fullName'])
 
 '''@app.route("/SaveExit", methods=['POST', 'GET'])
 def consultantPagesevenSaveExit():
@@ -267,11 +274,20 @@ def saveconsultant():
     ImpSkills = request.form.get('ImpSkills', '')
     LookingSkills = request.form.get('LookingSkills', '')
     JobCanSeenBy = request.form.get('JobCanSeenBy', '')
-    PayBy = request.form.get('PayBy', '')
-    ProjectDuration = request.form.get('ProjectDuration', '')
-    TimeRequirement = request.form.get('TimeRequirement', '')
-    SpecificBudget = request.form.get('SpecificBudget', '')
-    Urgency = request.form.get('Urgency', '')
+
+    if request.method == 'POST' and steps=="step7":
+        PayBy = request.form['PayBy']
+        ProjectDuration = request.form['ProjectDuration']
+        TimeRequirement = request.form['TimeRequirement']
+        SpecificBudget = request.form['SpecificBudget']
+        Urgency = request.form['Urgency']
+    else:
+        PayBy = request.form.get('PayBy', '')
+        ProjectDuration = request.form.get('ProjectDuration', '')
+        TimeRequirement = request.form.get('TimeRequirement', '')
+        SpecificBudget = request.form.get('SpecificBudget', '')
+        Urgency = request.form.get('Urgency', '')
+
     Feature='NO'
     sevenbutton='0'
     print("Retrieved from main->saveconsultant: ",userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
@@ -362,6 +378,8 @@ def RegistrationPage():
                         session["userId"] = userclass['Id']
                         session["fullName"] = userclass['fullname']
                         print("userId for session is : ", session["userId"])
+                        global uid
+                        uid = str(session["userId"])
                     return render_template('consultation.html', paramName=fullname)
                     ######
                 cur.close()
