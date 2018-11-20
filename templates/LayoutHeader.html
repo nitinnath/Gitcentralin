@@ -39,7 +39,7 @@
                         <img alt="image" class="rounded-circle"
                              src="{{ url_for('static', filename='img/profile_small.jpg') }}"/>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">{{paramName}}</span>
+                            <span class="block m-t-xs font-bold">{{ paramName.username }}</span>
                             <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -47,7 +47,7 @@
                             <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                             <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                             <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                            <li><a class="dropdown-item" href="/login">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -76,9 +76,15 @@
                 </li>
                 <li>
                     <a href="review.html"><i class="fa fa-check"></i> <span class="nav-label">Review</span></a>
-
                 </li>
-
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Shared Links</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <!--<li><a href="tags.html">Tags</a></li>-->
+                        <!--<li><a href="users.html">Users</a></li>-->
+                        <li><a href="showpostjobs">Jobs</a></li>
+                    </ul>
+                </li>
 
             </ul>
 

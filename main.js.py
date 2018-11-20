@@ -8,12 +8,13 @@ from flask import Flask, redirect, request, render_template, session, flash, url
 from werkzeug.security import *
 from werkzeug.utils import secure_filename
 
-from Consultant import ConsultantClass
+from Consultant import ConsultantClass, ConsultantData
 from personallinks import PersonalLink
 from userFile import UserModel
 
 global data_dic
 global uid
+global consObj
 app = Flask(__name__)
 
 
@@ -118,6 +119,9 @@ def personalLinks():
             data = personalLinkClass.getAllData()
             return render_template('personal-links.html', data=data)
 
+@app.route("/forget_pas")
+def ForgetPasClick():
+    return render_template('forgot_password.html')
 
 @app.route("/consultant")
 def consultantPage():
@@ -125,7 +129,11 @@ def consultantPage():
         return redirect('/login')
     else:
         # print("userrrr is authored")
-        return render_template('consultation.html', paramName=session['fullName'])
+        print("in consultantPage: ",session['fullName'])
+        global data_dic
+        data_dic={}
+        data_dic['username'] = session['fullName']
+        return render_template('consultation.html', paramName=data_dic)
 
 @app.route("/description")
 def DescriptionPage():
@@ -210,8 +218,9 @@ def consultantPagesevenPostJob():
         elif sevenbutton=='SaveExit':
             print("SaveExit if")
             consultantObj.FromSevenSaveExit(steps, userid)
-
-    return render_template('consultation.html', paramName=session['fullName'])
+    print('consultantPagesevenPostJob name : ',session['fullName'])
+    data_dic['username']=session['fullName']
+    return render_template('consultation.html', paramName=data_dic)
 
 '''@app.route("/SaveExit", methods=['POST', 'GET'])
 def consultantPagesevenSaveExit():
@@ -301,9 +310,21 @@ def saveconsultant():
     consultantObj.SaveConsultant()
     global data_dic
     data_dic= consultantObj.getConsultantById()
+    data_dic['username']=session["fullName"]
     print("DATA FOR DICTIOARY: ", data_dic)
     return steps
 
+@app.route("/showpostjobs")
+def ShowPostJobs():
+    data = ConsultantData.getDataById(session['userId'], session["fullName"])
+    # data['username']=session["fullName"]
+    # print('data  from ShowPostJobs : ', data)
+    # d={}
+    # d=data
+    # d['username']=session["fullName"]
+    print(type(data))
+    data.append({'username': session["fullName"] })
+    return render_template('jobs.html', paramName=data)
 
 @app.route("/title")
 def TitlePage():
@@ -380,7 +401,8 @@ def RegistrationPage():
                         print("userId for session is : ", session["userId"])
                         global uid
                         uid = str(session["userId"])
-                    return render_template('consultation.html', paramName=fullname)
+                        data_dic['username'] = session["fullName"]
+                    return render_template('consultation.html', paramName=data_dic)
                     ######
                 cur.close()
 

@@ -228,3 +228,29 @@ class ConsultantClass:
         '''if self.Steps == 'SaveExit':
             if consultantRecords is not None:
                 ConsultantClass.updateOnReviewConsultantLink(self)'''
+
+class ConsultantData:
+
+    def getDataById(uid, uname):
+        with connection.cursor() as cur:
+            cur.execute("select Title, created_at, Description, LookingSkills, SpecificBudget from consultant where PostJob='1' ")
+            data = cur.fetchall()
+
+            global data_dic
+            data_dic = data
+            cur.close()
+            print("data retrieved from getConsultantById data_dic: ", data_dic)
+            # d={}
+            # for i in data:
+            #     d[i]
+
+
+            return data
+        # with connection.cursor() as cur:
+        #     cur.execute("select * from consultant where UserId = '" + str(uid) + "'")
+        #     data = cur.fetchone()
+        #     global data_dic
+        #     data_dic = data
+        #     cur.close()
+        #     print("data retrieved from getConsultantById: ", data)
+        #     return data
