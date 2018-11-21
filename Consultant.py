@@ -3,39 +3,42 @@ import datetime
 
 global data_dic
 
+
 class ConsultantClass:
 
-    def __init__(self, UserId, Steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation, FileData, ProjectType,
-                 Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills, JobCanSeenBy, PayBy, ProjectDuration,
+    def __init__(self, UserId, Steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation,
+                 FileData, ProjectType,
+                 Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills, JobCanSeenBy, PayBy,
+                 ProjectDuration,
                  TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton):
 
-        #self.type = type
-        self.UserId=UserId
-        self.Steps=Steps
-        self.Plan=Plan
-        self.Title=Title
-        self.JobCategory=JobCategory
-        self.SubCategory=SubCategory
-        self.Description=Description
-        self.FileName=FileName
-        self.FileLocation=FileLocation
-        self.FileData=FileData
-        self.ProjectType=ProjectType
-        self.Describes=Describes
-        self.WorkType=WorkType
-        self.ApiToIntegrate=ApiToIntegrate
-        self.ProjectStage=ProjectStage
-        self.ImpSkills=ImpSkills
-        self.LookingSkills=LookingSkills
-        self.JobCanSeenBy=JobCanSeenBy
-        self.PayBy=PayBy
-        self.ProjectDuration=ProjectDuration
-        self.TimeRequirement=TimeRequirement
-        self.SpecificBudget=SpecificBudget
-        self.Urgency=Urgency
-        self.Feature=Feature
-        self.sevenbutton=sevenbutton
-        #self.SaveExit=SaveExit
+        # self.type = type
+        self.UserId = UserId
+        self.Steps = Steps
+        self.Plan = Plan
+        self.Title = Title
+        self.JobCategory = JobCategory
+        self.SubCategory = SubCategory
+        self.Description = Description
+        self.FileName = FileName
+        self.FileLocation = FileLocation
+        self.FileData = FileData
+        self.ProjectType = ProjectType
+        self.Describes = Describes
+        self.WorkType = WorkType
+        self.ApiToIntegrate = ApiToIntegrate
+        self.ProjectStage = ProjectStage
+        self.ImpSkills = ImpSkills
+        self.LookingSkills = LookingSkills
+        self.JobCanSeenBy = JobCanSeenBy
+        self.PayBy = PayBy
+        self.ProjectDuration = ProjectDuration
+        self.TimeRequirement = TimeRequirement
+        self.SpecificBudget = SpecificBudget
+        self.Urgency = Urgency
+        self.Feature = Feature
+        self.sevenbutton = sevenbutton
+        # self.SaveExit=SaveExit
 
     def getAllData(self):
         with connection.cursor() as cur:
@@ -45,7 +48,7 @@ class ConsultantClass:
             return data
 
     def getConsultantById(self):
-        print("into getConsultantById which is ",str(self.UserId) )
+        print("into getConsultantById which is ", str(self.UserId))
         with connection.cursor() as cur:
             cur.execute("select * from consultant where UserId = '" + str(self.UserId) + "'")
             data = cur.fetchone()
@@ -57,10 +60,11 @@ class ConsultantClass:
 
     def insertFirstStepConsultantLink(self):
         try:
-            print("data is: ", self.Plan, self.UserId, self.Steps, datetime.datetime.now(), datetime.datetime.now() )
+            print("data is: ", self.Plan, self.UserId, self.Steps, datetime.datetime.now(), datetime.datetime.now())
             with connection.cursor() as cursor:
                 sql = "INSERT INTO consultant (Plan, UserId, LastStep, created_at, updated_at) VALUES (%s, %s, %s, %s, %s)"
-                cursor.execute(sql, (self.Plan, self.UserId, self.Steps, datetime.datetime.now(), datetime.datetime.now()))
+                cursor.execute(sql,
+                               (self.Plan, self.UserId, self.Steps, datetime.datetime.now(), datetime.datetime.now()))
                 connection.commit()
                 cursor.close()
         finally:
@@ -70,7 +74,7 @@ class ConsultantClass:
         try:
             with connection.cursor() as cursor:
                 sql = "UPDATE consultant set Plan = %s, LastStep=%s, updated_at=%s Where UserId = %s"
-                cursor.execute(sql, (self.Plan, self.Steps, datetime.datetime.now(), self.UserId ))
+                cursor.execute(sql, (self.Plan, self.Steps, datetime.datetime.now(), self.UserId))
                 connection.commit()
                 print("record from plan selection page")
                 cursor.close()
@@ -81,7 +85,8 @@ class ConsultantClass:
         try:
             with connection.cursor() as cursor:
                 sql = "UPDATE consultant set Title = %s, LastStep=%s, updated_at=%s, JobCategory=%s, SubCategory=%s  Where UserId = %s"
-                cursor.execute(sql, (self.Title, self.Steps, datetime.datetime.now(), self.JobCategory, self.SubCategory, self.UserId))
+                cursor.execute(sql, (
+                self.Title, self.Steps, datetime.datetime.now(), self.JobCategory, self.SubCategory, self.UserId))
                 connection.commit()
                 print("record from 1st step title job ctgry and all")
                 cursor.close()
@@ -92,7 +97,9 @@ class ConsultantClass:
         try:
             with connection.cursor() as cursor:
                 sql = "UPDATE consultant set Description=%s, LastStep=%s,  FileName = %s,  FileLocation = %s,  FileData = %s, updated_at=%s   Where UserId = %s"
-                cursor.execute(sql, (self.Description, self.Steps, self.FileName, self.FileLocation, self.FileData, datetime.datetime.now(), self.UserId))
+                cursor.execute(sql, (
+                self.Description, self.Steps, self.FileName, self.FileLocation, self.FileData, datetime.datetime.now(),
+                self.UserId))
                 connection.commit()
                 print("record from 2nd step descrption last step and etc")
                 cursor.close()
@@ -103,7 +110,9 @@ class ConsultantClass:
         try:
             with connection.cursor() as cursor:
                 sql = "UPDATE consultant set ProjectType = %s, LastStep=%s,  Describes = %s, WorkType = %s, ApiToIntegrate = %s, ProjectStage = %s, updated_at=%s Where UserId = %s"
-                cursor.execute(sql, (self.ProjectType, self.Steps, self.Describes, self.WorkType, self.ApiToIntegrate, self.ProjectStage, datetime.datetime.now(), self.UserId))
+                cursor.execute(sql, (
+                self.ProjectType, self.Steps, self.Describes, self.WorkType, self.ApiToIntegrate, self.ProjectStage,
+                datetime.datetime.now(), self.UserId))
                 connection.commit()
                 print("record from 3rd steps project type and all")
                 cursor.close()
@@ -114,7 +123,8 @@ class ConsultantClass:
         try:
             with connection.cursor() as cursor:
                 sql = "UPDATE consultant set ImpSkills = %s, LastStep=%s, LookingSkills = %s, updated_at=%s  Where UserId = %s"
-                cursor.execute(sql, (self.ImpSkills, self.Steps, self.LookingSkills, datetime.datetime.now(), self.UserId))
+                cursor.execute(sql,
+                               (self.ImpSkills, self.Steps, self.LookingSkills, datetime.datetime.now(), self.UserId))
                 connection.commit()
                 print("record from 4th looking skills and etc")
                 cursor.close()
@@ -136,7 +146,9 @@ class ConsultantClass:
         try:
             with connection.cursor() as cursor:
                 sql = "UPDATE consultant set PayBy = %s, LastStep=%s, ProjectDuration = %s, TimeRequirement = %s, SpecificBudget = %s, Urgency = %s, updated_at=%s Where UserId = %s"
-                cursor.execute(sql, (self.PayBy, self.Steps, self.ProjectDuration, self.TimeRequirement, self.SpecificBudget, self.Urgency, datetime.datetime.now(), self.UserId))
+                cursor.execute(sql, (
+                self.PayBy, self.Steps, self.ProjectDuration, self.TimeRequirement, self.SpecificBudget, self.Urgency,
+                datetime.datetime.now(), self.UserId))
                 connection.commit()
                 print("record saved 6 steps Pay projct duration and all")
                 cursor.close()
@@ -161,7 +173,7 @@ class ConsultantClass:
             return ""
 
     def FromSevenPostJob(self, steps, userid):
-        Feature=self.Feature
+        Feature = self.Feature
         print("FromSevenPostJob Feature: ", Feature)
         print("FromSevenPostJob function")
         try:
@@ -175,7 +187,7 @@ class ConsultantClass:
             return ""
 
     def FromSevenSaveExit(self, steps, userid):
-        Feature=self.Feature
+        Feature = self.Feature
         print("FromSevenSaveExit Feature: ", Feature)
         print("FromSevenSaveExit function")
         try:
@@ -217,7 +229,7 @@ class ConsultantClass:
             if consultantRecords is not None:
                 ConsultantClass.updateSixStepConsultantLink(self)
 
-        if self.Steps == 'step7': #this would b run from 6 step on "next step" button
+        if self.Steps == 'step7':  # this would b run from 6 step on "next step" button
             if consultantRecords is not None:
                 ConsultantClass.updateSevenStepConsultantLink(self)
 
@@ -229,28 +241,29 @@ class ConsultantClass:
             if consultantRecords is not None:
                 ConsultantClass.updateOnReviewConsultantLink(self)'''
 
+
 class ConsultantData:
 
     def getDataById(uid, uname):
         with connection.cursor() as cur:
-            cur.execute("select Title, created_at, Description, LookingSkills, SpecificBudget from consultant where PostJob='1' ")
+            cur.execute(
+                "select Title, created_at, Description, LookingSkills, SpecificBudget from consultant where PostJob='1' ")
             data = cur.fetchall()
-
             global data_dic
             data_dic = data
             cur.close()
             print("data retrieved from getConsultantById data_dic: ", data_dic)
-            # d={}
-            # for i in data:
-            #     d[i]
-
-
             return data
-        # with connection.cursor() as cur:
-        #     cur.execute("select * from consultant where UserId = '" + str(uid) + "'")
-        #     data = cur.fetchone()
-        #     global data_dic
-        #     data_dic = data
-        #     cur.close()
-        #     print("data retrieved from getConsultantById: ", data)
-        #     return data
+
+    def getSavedJobsById(uid, uname):
+        with connection.cursor() as cur:
+            cur.execute(
+                "select c.Id, c.Plan, c.Title, u.fullname from consultant c, user u where c.SaveExit='1' and c.UserId=u.Id  ")
+                # "select c.Id, c.Plan, c.Title, u.fullname from consultant c, user u where c.SaveExit='1' and c.UserId='"+str(uid)+"' and c.UserId=u.Id ")
+            data = cur.fetchall()
+            if data:
+                global data_dic
+                data_dic = data
+                cur.close()
+                print("data retrieved from getSavedJobsById / data_dic: ", data_dic)
+            return data

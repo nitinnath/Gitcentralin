@@ -36,8 +36,8 @@
                         <form id="form">
                             steps
                             <h3 class="mb-4"> What would you like to do?</h3>
-
-
+                            <input type="hidden" name="consultantID" id="consultantID" value="">
+                            <input type="hidden" name="myplan" id="myplan" value="">
                             <input type="hidden" name="steps" value="step1">
 
 
@@ -47,8 +47,8 @@
                                     <div class="row">
                                         <div class="col-sm-12 pl-4 mb-2">
                                             <div class="i-checks">
-                                                <label class="font-weight-bold">
-                                                    <div class="iradio_square-green" style="position: relative;">
+                                                <label class="font-weight-bold" onclick="plan1()">
+                                                    <div class="iradio_square-green plan1" style="position: relative;">
                                                         <input type="radio" value="Buy a Package" name="plan"
                                                                style="position: absolute; opacity: 0;">
                                                         <ins class="iCheck-helper"
@@ -59,8 +59,8 @@
 
                                         <div class="col-sm-12 pl-4 mb-2">
                                             <div class="i-checks">
-                                                <label class="font-weight-bold">
-                                                    <div class="iradio_square-green" style="position: relative;">
+                                                <label class="font-weight-bold" onclick="plan2()">
+                                                    <div class="iradio_square-green plan2" style="position: relative;">
                                                         <input type="radio" value="Create a job post with USD"
                                                                name="plan" style="position: absolute; opacity: 0;">
                                                         <ins class="iCheck-helper"
@@ -72,8 +72,8 @@
 
                                         <div class="col-sm-12 pl-4 mb-2">
                                             <div class="i-checks">
-                                                <label class="font-weight-bold">
-                                                    <div class="iradio_square-green" style="position: relative;">
+                                                <label class="font-weight-bold" onclick="plan3()">
+                                                    <div class="iradio_square-green plan3" style="position: relative;">
                                                         <input type="radio"
                                                                value="Create a job post with Energy. (Small Scale)"
                                                                name="plan" style="position: absolute; opacity: 0;">
@@ -89,6 +89,21 @@
                             </div>
 
                         </form>
+                    </div>
+                    <h2>Previously Saved Jobs</h2>
+                    <div class="ibox-content border">
+                        <h3 class="mb-4"> Select your saved jobs from below</h3>
+                        <nav class="navbar navbar-expand-md navbar-light bg-light col-sm-12">
+                            <button class="navbar-toggler btn btn-white" type="button"
+                                    data-toggle="collapse" data-target="#navbarNavDropdown"
+                                    aria-controls="navbarNavDropdown" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <select aria-labelledby="navbarDropdownMenuLink" id="size" style="margin-right: 120px;">
+                                <option style="margin-right: 120px;"></option>
+                            </select>
+                        </nav>
                     </div>
                     <div class="form-group row mt-4">
                         <div class="col-lg-4">
@@ -233,8 +248,82 @@ function previousstpe(step)
         $('#divMain').load('consultantstep8');
     }*/
 }
+$(document).ready(function() {
+        $("#size").html("<option class='wrapper-dropdown-2 h7' style='margin-right: 70px;' value='None'>Select Saved Jobs</option>{% for i in paramName %}{% if not i['username'] %}<option class='wrapper-dropdown-2 h7' style='margin-right: 70px;' value='{{ i['Id']}}'>{{ i['Title'] }}</option>{% endif %}{% endfor %}  ");
 
+});
+$("#size").change(function(){
+            var v = $(this).val();
+            $('#consultantID').val(v);
+            var plan=''
+            var g = ''
+            {% for i in paramName %}
+                g = '{{ i['Id'] }}';
+                if(v==g){
+                    plan='{{ i['Plan'] }}';
+                    $('#myplan').val(plan);
+                    <!--alert(plan);-->
+                 }
+            {% endfor %};
+               var radiobtn;
+            if( plan=='Create a job post with Energy. (Small Scale)'){
+                plan3();
+                <!--$('.plan3').addClass('checked');-->
+                <!--$('.plan2').removeClass('checked');-->
+                <!--$('.plan1').removeClass('checked');-->
+            }
+            else if(plan=='Create a job post with USD'){
+                plan2();
+                <!--$('.plan2').addClass('checked');-->
+                <!--$('.plan1').removeClass('checked');-->
+                <!--$('.plan3').removeClass('checked');-->
+            }
+            else if(plan=='Buy a Package'){
+                plan1();
+                <!--$('.plan1').addClass('checked');-->
+                <!--$('.plan2').removeClass('checked');-->
+                <!--$('.plan3').removeClass('checked');-->
+            }
+            else{
+            $('.plan1').removeClass('checked');
+            $('.plan2').removeClass('checked');
+            $('.plan3').removeClass('checked');
+            }
+});
 
+function plan1(){
+        alert('plan1');
+        <!--$("#size").val('None')-->
+        $('.iradio_square-green').addClass('checked');
+        $('.plan1').find('.iradio_square-green').addClass('checked');
+
+        $('.plan2').removeClass('checked');
+        $('.plan2').find('.iradio_square-green').removeClass('checked');
+        $('.plan3').removeClass('checked');
+        $('.plan3').find('.iradio_square-green').removeClass('checked');
+ }
+function plan2(){
+        alert('plan2');
+        <!--$("#size").val('None')-->
+        $('.iradio_square-green').addClass('checked');
+        $('.plan2').find('.iradio_square-green').addClass('checked');
+
+        $('.plan1').removeClass('checked');
+        $('.plan1').find('.iradio_square-green').removeClass('checked');
+        $('.plan3').removeClass('checked');
+        $('.plan3').find('.iradio_square-green').removeClass('checked');
+ }
+function plan3(){
+        alert('plan3');
+        <!--$("#size").val('None')-->
+        $('.iradio_square-green').addClass('checked');
+        $('.plan3').find('.iradio_square-green').addClass('checked');
+
+        $('.plan2').removeClass('checked');
+        $('.plan2').find('.iradio_square-green').removeClass('checked');
+        $('.plan1').removeClass('checked');
+        $('.plan1').find('.iradio_square-green').removeClass('checked');
+ }
 </script>
 
 

@@ -351,22 +351,22 @@ $(document).ready(function() {
         if (val == "1") {
             $('#JobCategory').val('1');
             $('#SubCategory').val('1a');
-            $("#size").html("<option style='margin-right: 70px;' value='1a'>1: 1a</option><option style='margin-right: 70px;' value='1b'>1: 1b</option><option style='margin-right: 70px;' value='1c'>1: 1c</option><option style='margin-right: 70px;' value='1d'>1: 1d</option><option style='margin-right: 70px;' value='1e'>1: 1e</option>");
+            $("#size").html("<option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1a'>1: 1a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1b'>1: 1b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1c'>1: 1c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1d'>1: 1d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1e'>1: 1e</option>");
 
         } else if (val == "2") {
             $('#JobCategory').val('2');
             $('#SubCategory').val('2a');
-            $("#size").html("<option style='margin-right: 70px;' value='2a'>2: 2a</option><option style='margin-right: 70px;' value='2b'>2: 2b</option><option style='margin-right: 70px;' value='2c'>2: 2c</option><option style='margin-right: 70px;' value='2d'>2: 2d</option><option style='margin-right: 70px;' value='2e'>2: 2e</option>");
+            $("#size").html("<option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2a'>2: 2a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2b'>2: 2b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2c'>2: 2c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2d'>2: 2d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2e'>2: 2e</option>");
 
         } else if (val == "3") {
             $('#JobCategory').val('3');
             $('#SubCategory').val('3a');
-            $("#size").html("<option style='margin-right: 70px;' value='3a'>3: 3a</option><option style='margin-right: 70px;' value='3b'>3: 3b</option><option style='margin-right: 70px;' value='3c'>3: 3c</option><option style='margin-right: 70px;' value='3d'>3: 3d</option><option style='margin-right: 70px;' value='3e'>3: 3e</option>");
+            $("#size").html("<option  class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3a'>3: 3a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3b'>3: 3b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3c'>3: 3c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3d'>3: 3d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3e'>3: 3e</option>");
 
         }else if (val == "4") {
             $('#JobCategory').val('4');
             $('#SubCategory').val('4a');
-            $("#size").html("<option style='margin-right: 70px;' value='4a'>4: 4a</option><option style='margin-right: 70px;' value='4b'>4: 4b</option><option style='margin-right: 70px;' value='4c'>4: 4c</option><option style='margin-right: 70px;' value='4d'>4: 4d</option><option style='margin-right: 70px;' value='4e'>4: 4e</option>");
+            $("#size").html("<option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4a'>4: 4a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4b'>4: 4b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4c'>4: 4c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4d'>4: 4d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4e'>4: 4e</option>");
         }
 
 
@@ -375,7 +375,7 @@ $(document).ready(function() {
      $("#size").change(function(){
         var v = $(this).val();
         if (v == "1a") {
-            alert(v)
+            <!--alert(v)-->
             $('#SubCategory').val(v);
         } else if (v == "1b") {
             $('#SubCategory').val(v);

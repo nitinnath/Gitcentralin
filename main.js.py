@@ -119,21 +119,33 @@ def personalLinks():
             data = personalLinkClass.getAllData()
             return render_template('personal-links.html', data=data)
 
+
 @app.route("/forget_pas")
 def ForgetPasClick():
     return render_template('forgot_password.html')
+
 
 @app.route("/consultant")
 def consultantPage():
     if IsAuthorized() == False:
         return redirect('/login')
     else:
-        # print("userrrr is authored")
-        print("in consultantPage: ",session['fullName'])
-        global data_dic
-        data_dic={}
-        data_dic['username'] = session['fullName']
-        return render_template('consultation.html', paramName=data_dic)
+        print("in consultantPage: ", session['fullName'])
+        data = ConsultantData.getSavedJobsById(session['userId'], session["fullName"])
+        if data:
+            print('data from ConsultantData.getSavedJobsById : ', data)
+            # data_dic = data
+            data.append({'username': session["fullName"]})
+            print(data)
+            return render_template('consultation.html', paramName=data)
+        else:
+            global data_dic
+            data_dic={}
+            data_dic['username'] = session['fullName']
+            print('from else in consultantPage : ', data_dic)
+            return render_template('consultation.html', paramName=data_dic)
+
+
 
 @app.route("/description")
 def DescriptionPage():
@@ -174,6 +186,7 @@ def consultantPagesix():
 def consultantPageseven():
     return render_template('consultationStep7.html', paramName=data_dic)
 
+
 @app.route("/PostJob", methods=['POST', 'GET'])
 def consultantPagesevenPostJob():
     print("in to consultantPagesevenPostJob")
@@ -204,23 +217,29 @@ def consultantPagesevenPostJob():
         Feature = request.form['Feature']
         sevenbutton = request.form['sevenbutton']
 
-        print("Retrieved from main->saveconsultant: ",userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
-              FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills,
+        print("Retrieved from main->saveconsultant: ", userid, steps, Plan, Title, JobCategory, SubCategory,
+              Description, FileName,
+              FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
+              LookingSkills,
               JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton)
 
-        consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation,
-                                        FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
-                                        LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget,
+        consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
+                                        FileLocation,
+                                        FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage,
+                                        ImpSkills,
+                                        LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement,
+                                        SpecificBudget,
                                         Urgency, Feature, sevenbutton)
-        if sevenbutton=='PostJob':
+        if sevenbutton == 'PostJob':
             print("Postjob if")
             consultantObj.FromSevenPostJob(steps, userid)
-        elif sevenbutton=='SaveExit':
+        elif sevenbutton == 'SaveExit':
             print("SaveExit if")
             consultantObj.FromSevenSaveExit(steps, userid)
-    print('consultantPagesevenPostJob name : ',session['fullName'])
-    data_dic['username']=session['fullName']
+    print('consultantPagesevenPostJob name : ', session['fullName'])
+    data_dic['username'] = session['fullName']
     return render_template('consultation.html', paramName=data_dic)
+
 
 '''@app.route("/SaveExit", methods=['POST', 'GET'])
 def consultantPagesevenSaveExit():
@@ -263,6 +282,7 @@ def consultantPagesevenSaveExit():
     return ""
 '''
 
+
 @app.route('/saveConsultantpage', methods=['POST', 'GET'])
 def saveconsultant():
     userid: object = session["userId"]
@@ -284,7 +304,7 @@ def saveconsultant():
     LookingSkills = request.form.get('LookingSkills', '')
     JobCanSeenBy = request.form.get('JobCanSeenBy', '')
 
-    if request.method == 'POST' and steps=="step7":
+    if request.method == 'POST' and steps == "step7":
         PayBy = request.form['PayBy']
         ProjectDuration = request.form['ProjectDuration']
         TimeRequirement = request.form['TimeRequirement']
@@ -297,34 +317,35 @@ def saveconsultant():
         SpecificBudget = request.form.get('SpecificBudget', '')
         Urgency = request.form.get('Urgency', '')
 
-    Feature='NO'
-    sevenbutton='0'
-    print("Retrieved from main->saveconsultant: ",userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
-          FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills,
+    Feature = 'NO'
+    sevenbutton = '0'
+    print("Retrieved from main->saveconsultant: ", userid, steps, Plan, Title, JobCategory, SubCategory, Description,
+          FileName,
+          FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
+          LookingSkills,
           JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton)
 
-    consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName, FileLocation,
+    consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
+                                    FileLocation,
                                     FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
-                                    LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget,
+                                    LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement,
+                                    SpecificBudget,
                                     Urgency, Feature, sevenbutton)
     consultantObj.SaveConsultant()
     global data_dic
-    data_dic= consultantObj.getConsultantById()
-    data_dic['username']=session["fullName"]
+    data_dic = consultantObj.getConsultantById()
+    data_dic['username'] = session["fullName"]
     print("DATA FOR DICTIOARY: ", data_dic)
     return steps
+
 
 @app.route("/showpostjobs")
 def ShowPostJobs():
     data = ConsultantData.getDataById(session['userId'], session["fullName"])
-    # data['username']=session["fullName"]
     # print('data  from ShowPostJobs : ', data)
-    # d={}
-    # d=data
-    # d['username']=session["fullName"]
-    print(type(data))
-    data.append({'username': session["fullName"] })
+    data.append({'username': session["fullName"]})
     return render_template('jobs.html', paramName=data)
+
 
 @app.route("/title")
 def TitlePage():
@@ -378,7 +399,7 @@ def RegistrationPage():
             error = "Please fill all the above details correctly."
             return render_template('landing-page.html', paramName=error)
         else:
-            #print("All the details are : ", name, lname, email, paswd)
+            # print("All the details are : ", name, lname, email, paswd)
             fullname = name + " " + lname
             with connection.cursor() as cur:
                 cur.execute(
