@@ -2,7 +2,7 @@ from connection import connection
 import datetime
 
 global data_dic
-
+last_inserted_id = ""
 
 class ConsultantClass:
 
@@ -10,7 +10,7 @@ class ConsultantClass:
                  FileData, ProjectType,
                  Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills, LookingSkills, JobCanSeenBy, PayBy,
                  ProjectDuration,
-                 TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton):
+                 TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton, consultantID):
 
         # self.type = type
         self.UserId = UserId
@@ -38,6 +38,7 @@ class ConsultantClass:
         self.Urgency = Urgency
         self.Feature = Feature
         self.sevenbutton = sevenbutton
+        self.consultantID = consultantID
         # self.SaveExit=SaveExit
 
     def getAllData(self):
@@ -49,14 +50,21 @@ class ConsultantClass:
 
     def getConsultantById(self):
         print("into getConsultantById which is ", str(self.UserId))
-        with connection.cursor() as cur:
-            cur.execute("select * from consultant where UserId = '" + str(self.UserId) + "'")
-            data = cur.fetchone()
-            global data_dic
-            data_dic = data
-            cur.close()
-            print("data retrieved from getConsultantById: ", data)
-            return data
+        global last_inserted_id
+        print(last_inserted_id)
+        print("into getConsultantById last_inserted_id  and self.consultantID is ", str(last_inserted_id), str(self.consultantID))
+        try:
+            with connection.cursor() as cur:
+                cur.execute("select * from consultant where UserId = '" + str(self.UserId) + "' and Id='"+str(last_inserted_id)+"'")
+                data = cur.fetchone()
+                global data_dic
+                data_dic = data
+                print("data retrieved from getConsultantById: ", data)
+                cur.close()
+                # return data
+                return data_dic
+        except:
+            print("SQL Error in getConsultantById")
 
     def insertFirstStepConsultantLink(self):
         try:
@@ -68,12 +76,20 @@ class ConsultantClass:
                 connection.commit()
                 cursor.close()
         finally:
+            with connection.cursor() as cur:
+                cur.execute("select MAX(id) from consultant where UserId = '" + str(self.UserId) + "'")
+                data = cur.fetchone()
+                print("last ID from insertFirstStepConsultantLink: ", data)
+                global last_inserted_id
+                last_inserted_id = str(data['MAX(id)'])
+                self.consultantID = str(data['MAX(id)'])
+                cur.close()
             return ""
 
     def updateFirstStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set Plan = %s, LastStep=%s, updated_at=%s Where UserId = %s"
+                sql = "UPDATE consultant set Plan = %s, LastStep=%s, updated_at=%s Where UserId = %s and Id='"+last_inserted_id+"'"
                 cursor.execute(sql, (self.Plan, self.Steps, datetime.datetime.now(), self.UserId))
                 connection.commit()
                 print("record from plan selection page")
@@ -84,7 +100,7 @@ class ConsultantClass:
     def updateSecondStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set Title = %s, LastStep=%s, updated_at=%s, JobCategory=%s, SubCategory=%s  Where UserId = %s"
+                sql = "UPDATE consultant set Title = %s, LastStep=%s, updated_at=%s, JobCategory=%s, SubCategory=%s Where UserId = %s and Id='"+last_inserted_id+"' "
                 cursor.execute(sql, (
                 self.Title, self.Steps, datetime.datetime.now(), self.JobCategory, self.SubCategory, self.UserId))
                 connection.commit()
@@ -96,7 +112,7 @@ class ConsultantClass:
     def updateThirdStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set Description=%s, LastStep=%s,  FileName = %s,  FileLocation = %s,  FileData = %s, updated_at=%s   Where UserId = %s"
+                sql = "UPDATE consultant set Description=%s, LastStep=%s,  FileName = %s,  FileLocation = %s,  FileData = %s, updated_at=%s Where UserId = %s and Id='"+last_inserted_id+"'"
                 cursor.execute(sql, (
                 self.Description, self.Steps, self.FileName, self.FileLocation, self.FileData, datetime.datetime.now(),
                 self.UserId))
@@ -109,7 +125,7 @@ class ConsultantClass:
     def updateFourStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set ProjectType = %s, LastStep=%s,  Describes = %s, WorkType = %s, ApiToIntegrate = %s, ProjectStage = %s, updated_at=%s Where UserId = %s"
+                sql = "UPDATE consultant set ProjectType = %s, LastStep=%s,  Describes = %s, WorkType = %s, ApiToIntegrate = %s, ProjectStage = %s, updated_at=%s Where UserId = %s and Id='"+last_inserted_id+"'"
                 cursor.execute(sql, (
                 self.ProjectType, self.Steps, self.Describes, self.WorkType, self.ApiToIntegrate, self.ProjectStage,
                 datetime.datetime.now(), self.UserId))
@@ -122,7 +138,7 @@ class ConsultantClass:
     def updateFiveStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set ImpSkills = %s, LastStep=%s, LookingSkills = %s, updated_at=%s  Where UserId = %s"
+                sql = "UPDATE consultant set ImpSkills = %s, LastStep=%s, LookingSkills = %s, updated_at=%s  Where UserId = %s and Id='"+last_inserted_id+"'"
                 cursor.execute(sql,
                                (self.ImpSkills, self.Steps, self.LookingSkills, datetime.datetime.now(), self.UserId))
                 connection.commit()
@@ -134,37 +150,40 @@ class ConsultantClass:
     def updateSixStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set JobCanSeenBy = %s, LastStep=%s, updated_at=%s Where UserId = %s"
+                sql = "UPDATE consultant set JobCanSeenBy = %s, LastStep=%s, updated_at=%s Where UserId = %s and Id='"+last_inserted_id+"'"
                 cursor.execute(sql, (self.JobCanSeenBy, self.Steps, datetime.datetime.now(), self.UserId))
                 connection.commit()
                 print("record from 5th step saved job can seen")
                 cursor.close()
+        except:
+                print("Execption in SQL at updateSixStepConsultantLink.")
         finally:
             return ""
 
     def updateSevenStepConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set PayBy = %s, LastStep=%s, ProjectDuration = %s, TimeRequirement = %s, SpecificBudget = %s, Urgency = %s, updated_at=%s Where UserId = %s"
-                cursor.execute(sql, (
-                self.PayBy, self.Steps, self.ProjectDuration, self.TimeRequirement, self.SpecificBudget, self.Urgency,
-                datetime.datetime.now(), self.UserId))
+                sql = "UPDATE consultant set PayBy = %s, LastStep=%s, ProjectDuration = %s, TimeRequirement = %s, SpecificBudget = %s, Urgency = %s, updated_at=%s Where UserId = %s and Id='"+last_inserted_id+"'"
+                cursor.execute(sql, (self.PayBy, self.Steps, self.ProjectDuration, self.TimeRequirement, self.SpecificBudget,
+                                     self.Urgency,datetime.datetime.now(), self.UserId))
                 connection.commit()
                 print("record saved 6 steps Pay projct duration and all")
                 cursor.close()
+        except:
+            print("SQL Error at updateSevenStepConsultantLink")
         finally:
-            with connection.cursor() as cur:
-                cur.execute("select * from consultant where UserId = '" + str(self.UserId) + "'")
-                data = cur.fetchone()
-                global data_dic
-                data_dic = data
-                cur.close()
-            return data_dic
+            # with connection.cursor() as cur:
+            #     cur.execute("select * from consultant where UserId = '" + str(self.UserId) + "'")
+            #     data = cur.fetchone()
+            #     global data_dic
+            #     data_dic = data
+            #     cur.close()
+            return ""
 
     def updateOnReviewConsultantLink(self):
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set Feature = %s, LastStep=%s, updated_at=%s Where UserId = %s"
+                sql = "UPDATE consultant set Feature = %s, LastStep=%s, updated_at=%s Where UserId = %s and Id='"+last_inserted_id+"'"
                 cursor.execute(sql, (self.Feature, self.Steps, datetime.datetime.now(), self.UserId))
                 connection.commit()
                 print("record on 7th step Updated a featured or not")
@@ -178,7 +197,7 @@ class ConsultantClass:
         print("FromSevenPostJob function")
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set Feature = %s, PostJob = %s, LastStep=%s, updated_at=%s Where UserId = %s"
+                sql = "UPDATE consultant set Feature = %s, PostJob = %s, LastStep=%s, updated_at=%s Where UserId = %s  and Id='"+last_inserted_id+"'"
                 cursor.execute(sql, (Feature, '1', steps, datetime.datetime.now(), userid))
                 connection.commit()
                 print("record Posted a Job")
@@ -192,7 +211,7 @@ class ConsultantClass:
         print("FromSevenSaveExit function")
         try:
             with connection.cursor() as cursor:
-                sql = "UPDATE consultant set Feature = %s, SaveExit = %s, LastStep=%s, updated_at=%s Where UserId = %s"
+                sql = "UPDATE consultant set Feature = %s, SaveExit = %s, LastStep=%s, updated_at=%s Where UserId = %s and Id='"+last_inserted_id+"'"
                 cursor.execute(sql, (Feature, '1', steps, datetime.datetime.now(), userid))
                 connection.commit()
                 print("record SAVE and exit")
@@ -200,14 +219,21 @@ class ConsultantClass:
         finally:
             return ""
 
-    def SaveConsultant(self):
+    def SaveConsultant(self, consultantID):
         consultantRecords = ConsultantClass.getConsultantById(self)
         print("from SaveConsultant steps is : ", self.Steps)
         if self.Steps == 'step1':
-            if consultantRecords is not None:
-                ConsultantClass.updateFirstStepConsultantLink(self)
-            else:
+            if consultantID=="None":
                 ConsultantClass.insertFirstStepConsultantLink(self)
+                print("found None going to insert ")
+            else:
+                print("consultantID found "+str(consultantID)+" and now going to update")
+                ConsultantClass.updateFirstStepConsultantLink(self)
+            # if consultantRecords is not None:
+            #     ConsultantClass.updateFirstStepConsultantLink(self)
+            # else:
+            #     print("for new ", self.consultantID)
+            #     ConsultantClass.insertFirstStepConsultantLink(self)
 
         if self.Steps == 'step2':
             if consultantRecords is not None:
@@ -244,26 +270,33 @@ class ConsultantClass:
 
 class ConsultantData:
 
-    def getDataById(uid, uname):
+    def getPostJobsById(uid, uname):
         with connection.cursor() as cur:
             cur.execute(
-                "select Title, created_at, Description, LookingSkills, SpecificBudget from consultant where PostJob='1' ")
-            data = cur.fetchall()
-            global data_dic
-            data_dic = data
-            cur.close()
-            print("data retrieved from getConsultantById data_dic: ", data_dic)
-            return data
-
-    def getSavedJobsById(uid, uname):
-        with connection.cursor() as cur:
-            cur.execute(
-                "select c.Id, c.Plan, c.Title, u.fullname from consultant c, user u where c.SaveExit='1' and c.UserId=u.Id  ")
-                # "select c.Id, c.Plan, c.Title, u.fullname from consultant c, user u where c.SaveExit='1' and c.UserId='"+str(uid)+"' and c.UserId=u.Id ")
+                "select Title, created_at, Description, LookingSkills, SpecificBudget from consultant where PostJob='1' and UserId='"+str(uid)+"'")
             data = cur.fetchall()
             if data:
                 global data_dic
                 data_dic = data
                 cur.close()
-                print("data retrieved from getSavedJobsById / data_dic: ", data_dic)
+                print("Consultant > getPostJobsById > data_dic: ", data_dic)
+            return data
+
+            # global data_dic
+            # data_dic = data
+            # cur.close()
+            # print("data retrieved from getConsultantById data_dic: ", data_dic)
+            # return data
+
+    def getSavedJobsById(uid, uname):
+        with connection.cursor() as cur:
+            cur.execute(
+                # "select c.Id, c.Plan, c.Title, u.fullname from consultant c, user u where c.SaveExit='1' and c.UserId=u.Id  ")
+                "select c.Id, c.Plan, c.Title, u.fullname from consultant c, user u where c.SaveExit='1' and c.UserId='"+str(uid)+"' and c.UserId=u.Id ")
+            data = cur.fetchall()
+            if data:
+                global data_dic
+                data_dic = data
+                cur.close()
+                print("from consultant - getSavedJobsById / data_dic: ", data_dic)
             return data

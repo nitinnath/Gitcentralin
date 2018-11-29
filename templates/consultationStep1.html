@@ -28,13 +28,14 @@
                 </div>
                 <div class="ibox-content border">
                     <form id="form">
-                        <input type="hidden" name="JobCategory" id="JobCategory" value="1">
+                        <input type="hidden" name="JobCategory" id="JobCategory" value="">
                         <input type="hidden" name="SubCategory" id="SubCategory" value="">
                         <div class="form-group row">
                             <div class="col-lg-12">
                                 <h3 class="mb-4"> Enter the name of your job post</h3>
                                 <div class="col-sm-8 pl-0">
                                     <textarea class="form-control" name="Title" id="Title" rows="5"></textarea>
+                                    <p style="color: red;" id="error_msg" value="" class="error_msg"><strong></strong></p>
                                     <input type="hidden" name="steps" value="step2">
 
                                 </div>
@@ -96,11 +97,12 @@
                             <div class="col-lg-12">
                                 <h3 class="mb-4"> Job Category</h3>
                                 <div class="col-sm-8 pl-0">
-                                    <button class=" text-left font-weight-bold btn btn-white btn-block"
-                                            type="button" data-toggle="modal" data-target="#select-button">
+                                    <button id="jobButton" class=" text-left font-weight-bold btn btn-white btn-block"
+                                            type="button" data-toggle="modal" data-target="#select-button" >
                                         Select category & subcategory
                                     </button>
                                 </div>
+                                <p style="color: red;" id="error_msg1" value="" class="error_msg1"><b></b></p>
                             </div>
                         </div>
                     </form>
@@ -298,8 +300,6 @@
                                                 <option style="margin-right: 70px;">Select Sub Category</option>
                                             </select>
                                         </nav>
-
-
                                     </div>
 
                                 </div>
@@ -334,7 +334,7 @@
             }
         }
 
-        var dd = new DropDown($('#dd'));
+                                                           var dd = new DropDown($('#dd'));
         $(document).click(function () {
             // all dropdowns
             $('.wrapper-dropdown-2').removeClass('active');
@@ -349,86 +349,117 @@ $(document).ready(function() {
         $('.selected').html(val);
         var val = $(this).val();
         if (val == "1") {
-            $('#JobCategory').val('1');
-            $('#SubCategory').val('1a');
-            $("#size").html("<option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1a'>1: 1a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1b'>1: 1b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1c'>1: 1c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1d'>1: 1d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='1e'>1: 1e</option>");
+            $('#JobCategory').val('Category 1');
+            $('#SubCategory').val('Sub Category 1a');
+            $("#size").html("<option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 1a'>Sub Category 1a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 1b'>Sub Category 1b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 1c'>Sub Category 1c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 1d'>Sub Category 1d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 1e'>Sub Category 1e</option>");
 
         } else if (val == "2") {
-            $('#JobCategory').val('2');
-            $('#SubCategory').val('2a');
-            $("#size").html("<option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2a'>2: 2a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2b'>2: 2b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2c'>2: 2c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2d'>2: 2d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='2e'>2: 2e</option>");
+            $('#JobCategory').val('Category 2');
+            $('#SubCategory').val('Sub Category 2a');
+            $("#size").html("<option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 2a'>Sub Category 2a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 2b'>Sub Category 2b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 2c'>Sub Category 2c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 2d'>Sub Category 2d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 2e'>Sub Category 2e</option>");
 
         } else if (val == "3") {
-            $('#JobCategory').val('3');
-            $('#SubCategory').val('3a');
-            $("#size").html("<option  class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3a'>3: 3a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3b'>3: 3b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3c'>3: 3c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3d'>3: 3d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='3e'>3: 3e</option>");
+            $('#JobCategory').val('Category 3');
+            $('#SubCategory').val('Sub Category 3a');
+            $("#size").html("<option  class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 3a'>Sub Category 3a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 3b'>Sub Category 3b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 3c'>Sub Category 3c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 3d'>Sub Category 3d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 3e'>Sub Category 3e</option>");
 
         }else if (val == "4") {
-            $('#JobCategory').val('4');
-            $('#SubCategory').val('4a');
-            $("#size").html("<option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4a'>4: 4a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4b'>4: 4b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4c'>4: 4c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4d'>4: 4d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='4e'>4: 4e</option>");
+            $('#JobCategory').val('Category 4');
+            $('#SubCategory').val('Sub Category 4a');
+            $("#size").html("<option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 4a'>Sub Category 4a</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 4b'>Sub Category 4b</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 4c'>Sub Category 4c</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 4d'>Sub Category 4d</option><option class='wrapper-dropdown-2 h6' style='margin-right: 70px;' value='Sub Category 4e'>Sub Category 4e</option>");
         }
-
-
+        $('#jobButton').html($('#JobCategory').val()+' | '+$('#SubCategory').val()).css("border","1px solid grey");;
+        $('.error_msg1').hide();
     });
+
+        $("#Title").change(function(){
+            if($(this).val()==''){
+                $('#Title').fadeIn().html('').css("border","1px solid red");
+                $('.error_msg').html('<span class="label label-danger btn-block">Please enter the Job Title.</span>');
+                $('.error_msg').show();
+                return false;
+            }
+            else{
+                $('#Title').fadeIn().html('').css("border","1px solid grey");
+                $('.error_msg').hide();
+                return true;
+                }
+        });
+
+        $("#jobButton").change(function(){
+            if($("#JobCategory").val()==''){
+                $('#jobButton').fadeIn().html('').css("border","1px solid red");
+                $('.error_msg1').html('<span class="label label-danger btn-block">Please select Job Category.</span>');
+                $('.error_msg1').show();
+                return false;
+            }else{
+                $('#jobButton').fadeIn().html('').css("border","1px solid grey");
+                $('.error_msg1').hide();
+                return true;
+
+            }
+        });
 
      $("#size").change(function(){
         var v = $(this).val();
-        if (v == "1a") {
+        if (v == "Sub Category 1a") {
             <!--alert(v)-->
             $('#SubCategory').val(v);
-        } else if (v == "1b") {
+        } else if (v == "Sub Category 1b") {
             $('#SubCategory').val(v);
 
-        } else if (v == "1c") {
+        } else if (v == "Sub Category 1c") {
             $('#SubCategory').val(v);
 
-        }else if (v == "1d") {
+        }else if (v == "Sub Category 1d") {
             $('#SubCategory').val(v);
-        }else if (v == "1e") {
+        }else if (v == "Sub Category 1e") {
             $('#SubCategory').val(v);
-        }else if (v == "2a") {
-            $('#SubCategory').val(v);
-
-        } else if (v == "2b") {
+        }else if (v == "Sub Category 2a") {
             $('#SubCategory').val(v);
 
-        } else if (v == "2c") {
+        } else if (v == "Sub Category 2b") {
             $('#SubCategory').val(v);
 
-        }else if (v == "2d") {
-            $('#SubCategory').val(v);
-        }else if (v == "2e") {
-            $('#SubCategory').val(v);
-        }else if (v == "3a") {
+        } else if (v == "Sub Category 2c") {
             $('#SubCategory').val(v);
 
-        } else if (v == "3b") {
+        }else if (v == "Sub Category 2d") {
+            $('#SubCategory').val(v);
+        }else if (v == "Sub Category 2e") {
+            $('#SubCategory').val(v);
+        }else if (v == "Sub Category 3a") {
             $('#SubCategory').val(v);
 
-        } else if (v == "3c") {
+        } else if (v == "Sub Category 3b") {
             $('#SubCategory').val(v);
 
-        }else if (v == "3d") {
-            $('#SubCategory').val(v);
-        }else if (v == "3e") {
-            $('#SubCategory').val(v);
-        }else if (v == "4a") {
+        } else if (v == "Sub Category 3c") {
             $('#SubCategory').val(v);
 
-        } else if (v == "4b") {
+        }else if (v == "Sub Category 3d") {
+            $('#SubCategory').val(v);
+        }else if (v == "Sub Category 3e") {
+            $('#SubCategory').val(v);
+        }else if (v == "Sub Category 4a") {
             $('#SubCategory').val(v);
 
-        } else if (v == "4c") {
+        } else if (v == "Sub Category 4b") {
             $('#SubCategory').val(v);
 
-        }else if (v == "4d") {
+        } else if (v == "Sub Category 4c") {
             $('#SubCategory').val(v);
-        }else if (v == "4e") {
+
+        }else if (v == "Sub Category 4d") {
+            $('#SubCategory').val(v);
+        }else if (v == "Sub Category 4e") {
             $('#SubCategory').val(v);
         }
 
+       $('#jobButton').html($('#JobCategory').val()+' | '+$('#SubCategory').val()).css("border","1px solid grey");;
+        $('.error_msg1').hide();
      });
+
 });
 </script>
 <style>

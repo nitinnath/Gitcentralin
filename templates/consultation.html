@@ -36,7 +36,7 @@
                         <form id="form">
                             steps
                             <h3 class="mb-4"> What would you like to do?</h3>
-                            <input type="hidden" name="consultantID" id="consultantID" value="">
+                            <input type="hidden" name="consultantID" id="consultantID" value="None">
                             <input type="hidden" name="myplan" id="myplan" value="">
                             <input type="hidden" name="steps" value="step1">
 
@@ -83,7 +83,7 @@
                                                     <i></i> Create a job post with Energy. (Small Scale)</label></div>
                                         </div>
                                     </div>
-
+                                    <p style="color: red;" id="plan_error_msg" value="" class="plan_error_msg"><b></b></p>
 
                                 </div>
                             </div>
@@ -167,22 +167,93 @@ function SaveRecord(step)
 
 function nextstpe(step)
 {
-    SaveRecord(step);
+    //SaveRecord(step);
     if(step === 'step1')
     {
-        $('#divMain').load('consultantstep1');
+        if($("#myplan").val()==''){
+            $('.plan_error_msg').html('<span class="label label-danger btn-block">Please select a Plan first.</span>');
+        }else{
+            $('.plan_error_msg').hide();
+            //SaveRecord(step);
+            $('#divMain').load('consultantstep1');
+        }
     }
+
     if(step === 'step2')
     {
-        $('#divMain').load('consultantstep2');
+        if($("#Title").val()==''){
+                $('#Title').fadeIn().html('').css("border","1px solid red");
+                $('.error_msg').html('<span class="label label-danger btn-block">Enter a Job Title.</span>');
+                $('.error_msg').show();
+                $('.error_msg1').hide();
+                return false;
+        }else if($("#JobCategory").val()==''){
+                $('#Title').fadeIn().html('').css("border","1px solid grey");
+                $('#jobButton').fadeIn().html('').css("border","1px solid red");
+                $('.error_msg1').html('<span class="label label-danger btn-block">Please select a Job Category.</span>');
+                $('.error_msg').hide();
+                $('.error_msg1').show();
+                return false;
+        }else{
+            $('.error_msg').hide();
+            $('.error_msg1').hide();
+            //SaveRecord(step);
+            $('#divMain').load('consultantstep2');
+            return true;
+
+        }
     }
+
     if(step === 'step3')
     {
-        $('#divMain').load('consultantstep3');
+        if($("#Description").val().length<50){
+                $('#Description').fadeIn().html($("#Description").val()).css("border","1px solid red");
+                $('.desc_error_msg').html('<span class="label label-danger btn-block">Description have atleast minimum 50 characters for the job post.</span>');
+                $('.desc_error_msg').show();
+                return false;
+            }else{
+                $('#Description').fadeIn().html($("#Description").val()).css("border","1px solid grey");
+                $('.desc_error_msg').hide();
+                //SaveRecord(step);
+                $('#divMain').load('consultantstep3');
+            }
+
+
     }
     if(step === 'step4')
     {
-        $('#divMain').load('consultantstep4');
+        if($("#ProjectType").val()=='One-time project'){
+                if($("#Describes").val()==''){
+                    $('.project_type_error_msg').html('<span class="label label-danger btn-block">Please select atleast 1 from above.</span>');
+                    $('.project_type_error_msg').show();
+                    return false;
+                }else{
+                    $("#WorkType").val('');
+                    $('.project_type_error_msg').hide();
+                    //SaveRecord(step);
+                    $('#divMain').load('consultantstep4');
+                    return true;
+                }
+        }else if($("#ProjectType").val()=='Ongoing project'){
+                if($("#WorkType").val()==''){
+                    $('.project_type_error_msg').html('<span class="label label-danger btn-block">Please select atleast 1 from above.</span>');
+                    $('.project_type_error_msg').show();
+                    return false;
+                }else{
+                    $("#Describes").val('');
+                    $('.project_type_error_msg').hide();
+                    //SaveRecord(step);
+                    $('#divMain').load('consultantstep4');
+                    return true;
+                }
+        }else if($("#ProjectType").val()=='I am not sure'){
+                    $("#Describes").val('');
+                    $("#WorkType").val('');
+                    $('.project_type_error_msg').hide();
+                    //SaveRecord(step);
+                    $('#divMain').load('consultantstep4');
+                    return true;
+                }
     }
     if(step === 'step5')
     {
@@ -249,8 +320,8 @@ function previousstpe(step)
     }*/
 }
 $(document).ready(function() {
-        $("#size").html("<option class='wrapper-dropdown-2 h7' style='margin-right: 70px;' value='None'>Select Saved Jobs</option>{% for i in paramName %}{% if not i['username'] %}<option class='wrapper-dropdown-2 h7' style='margin-right: 70px;' value='{{ i['Id']}}'>{{ i['Title'] }}</option>{% endif %}{% endfor %}  ");
-
+        $("#size").html("{% if paramName['Title'] is not none %}<option class='wrapper-dropdown-2 h7' style='margin-right: 70px;' value='None'>Select Saved Jobs</option>{% for i in paramName %}{% if not i['username'] %}<option class='wrapper-dropdown-2 h7' style='margin-right: 70px;' value='{{ i['Id']}}'>{{ i['Title'] }}</option>{% endif %}{% endfor %}  {% endif %}");
+        //$('.col-lg-4').hide();
 });
 $("#size").change(function(){
             var v = $(this).val();
@@ -292,8 +363,9 @@ $("#size").change(function(){
 });
 
 function plan1(){
-        alert('plan1');
+        <!--alert('plan1');-->
         <!--$("#size").val('None')-->
+        $('#myplan').val('Buy a Package');
         $('.iradio_square-green').addClass('checked');
         $('.plan1').find('.iradio_square-green').addClass('checked');
 
@@ -301,10 +373,15 @@ function plan1(){
         $('.plan2').find('.iradio_square-green').removeClass('checked');
         $('.plan3').removeClass('checked');
         $('.plan3').find('.iradio_square-green').removeClass('checked');
+
+        //$('.col-lg-4').show();
+        $('.plan_error_msg').hide();
+
  }
 function plan2(){
-        alert('plan2');
+        <!--alert('plan2');-->
         <!--$("#size").val('None')-->
+        $('#myplan').val('Create a job post with USD');
         $('.iradio_square-green').addClass('checked');
         $('.plan2').find('.iradio_square-green').addClass('checked');
 
@@ -312,10 +389,14 @@ function plan2(){
         $('.plan1').find('.iradio_square-green').removeClass('checked');
         $('.plan3').removeClass('checked');
         $('.plan3').find('.iradio_square-green').removeClass('checked');
+
+        //$('.col-lg-4').show();
+        $('.plan_error_msg').hide();
  }
 function plan3(){
-        alert('plan3');
+        <!--alert('plan3');-->
         <!--$("#size").val('None')-->
+        $('#myplan').val('Create a job post with Energy. (Small Scale)');
         $('.iradio_square-green').addClass('checked');
         $('.plan3').find('.iradio_square-green').addClass('checked');
 
@@ -323,6 +404,9 @@ function plan3(){
         $('.plan2').find('.iradio_square-green').removeClass('checked');
         $('.plan1').removeClass('checked');
         $('.plan1').find('.iradio_square-green').removeClass('checked');
+
+        //$('.col-lg-4').show();
+        $('.plan_error_msg').hide();
  }
 </script>
 

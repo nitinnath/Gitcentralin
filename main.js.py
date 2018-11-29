@@ -8,13 +8,16 @@ from flask import Flask, redirect, request, render_template, session, flash, url
 from werkzeug.security import *
 from werkzeug.utils import secure_filename
 
-from Consultant import ConsultantClass, ConsultantData
+import Consultant
+from Consultant import *
 from personallinks import PersonalLink
 from userFile import UserModel
 
 global data_dic
 global uid
 global consObj
+current_id=""
+
 app = Flask(__name__)
 
 
@@ -133,17 +136,18 @@ def consultantPage():
         print("in consultantPage: ", session['fullName'])
         data = ConsultantData.getSavedJobsById(session['userId'], session["fullName"])
         if data:
-            print('data from ConsultantData.getSavedJobsById : ', data)
             # data_dic = data
             data.append({'username': session["fullName"]})
-            print(data)
+            print('data from ConsultantData.getSavedJobsById : ', data)
             return render_template('consultation.html', paramName=data)
         else:
+            data = list()
             global data_dic
             data_dic={}
             data_dic['username'] = session['fullName']
-            print('from else in consultantPage : ', data_dic)
-            return render_template('consultation.html', paramName=data_dic)
+            data.append(data_dic)
+            print('data from ConsultantData.getSavedJobsById : ', data)
+            return render_template('consultation.html', paramName=data)
 
 
 
@@ -169,21 +173,26 @@ def consultantPagethird():
 
 @app.route("/consultantstep4")
 def consultantPagefour():
+    print('rendering consultationStep4.html ')
     return render_template('consultationStep4.html')
 
 
 @app.route("/consultantstep5")
 def consultantPagefive():
+    print('rendering consultationStep5.html ')
     return render_template('consultationStep5.html')
 
 
 @app.route("/consultantstep6")
 def consultantPagesix():
+    print('rendering consultationStep6.html ')
     return render_template('consultationStep6.html')
 
 
 @app.route("/consultantstep7")
 def consultantPageseven():
+    print('rendering consultationStep7.html ')
+    print('paramName is : ', data_dic)
     return render_template('consultationStep7.html', paramName=data_dic)
 
 
@@ -216,6 +225,9 @@ def consultantPagesevenPostJob():
         Urgency = request.form.get('Urgency', '')
         Feature = request.form['Feature']
         sevenbutton = request.form['sevenbutton']
+        # consultantID = request.form['consultantID']
+        global current_id
+        print("from main.js - consultantPagesevenPostJob - consultantID is ",current_id)
 
         print("Retrieved from main->saveconsultant: ", userid, steps, Plan, Title, JobCategory, SubCategory,
               Description, FileName,
@@ -229,16 +241,21 @@ def consultantPagesevenPostJob():
                                         ImpSkills,
                                         LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement,
                                         SpecificBudget,
-                                        Urgency, Feature, sevenbutton)
+                                        Urgency, Feature, sevenbutton, current_id)
         if sevenbutton == 'PostJob':
-            print("Postjob if")
+            print("IF Postjob of Consultant id: ", current_id)
             consultantObj.FromSevenPostJob(steps, userid)
         elif sevenbutton == 'SaveExit':
-            print("SaveExit if")
+            print("ELSE SaveExit of Consultant id: ", current_id)
             consultantObj.FromSevenSaveExit(steps, userid)
-    print('consultantPagesevenPostJob name : ', session['fullName'])
-    data_dic['username'] = session['fullName']
-    return render_template('consultation.html', paramName=data_dic)
+
+    # print('consultantPagesevenPostJob name : ', session['fullName'])
+    # data_dic['username'] = session['fullName']
+    global data_dic
+    # data_dic = consultantObj.getConsultantById()
+    data_dic['username'] = session["fullName"]
+    print("DATA FOR DICTIOARY: ", data_dic)
+    return consultantPage()
 
 
 '''@app.route("/SaveExit", methods=['POST', 'GET'])
@@ -303,6 +320,14 @@ def saveconsultant():
     ImpSkills = request.form.get('ImpSkills', '')
     LookingSkills = request.form.get('LookingSkills', '')
     JobCanSeenBy = request.form.get('JobCanSeenBy', '')
+    global current_id
+    if steps=='step1' and request.method=='POST':
+        consultantID = request.form['consultantID']
+        current_id = consultantID
+        print("from main.js - saveconsultant - consultantID is ",current_id)
+    else:
+        print("else consultantID and current Id is : ", current_id)
+        current_id = Consultant.last_inserted_id
 
     if request.method == 'POST' and steps == "step7":
         PayBy = request.form['PayBy']
@@ -323,17 +348,17 @@ def saveconsultant():
           FileName,
           FileLocation, FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
           LookingSkills,
-          JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton)
+          JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement, SpecificBudget, Urgency, Feature, sevenbutton, current_id)
 
     consultantObj = ConsultantClass(userid, steps, Plan, Title, JobCategory, SubCategory, Description, FileName,
                                     FileLocation,
                                     FileData, ProjectType, Describes, WorkType, ApiToIntegrate, ProjectStage, ImpSkills,
                                     LookingSkills, JobCanSeenBy, PayBy, ProjectDuration, TimeRequirement,
                                     SpecificBudget,
-                                    Urgency, Feature, sevenbutton)
-    consultantObj.SaveConsultant()
+                                    Urgency, Feature, sevenbutton, current_id)
+    consultantObj.SaveConsultant(current_id)
     global data_dic
-    data_dic = consultantObj.getConsultantById()
+    data_dic = dict(consultantObj.getConsultantById())
     data_dic['username'] = session["fullName"]
     print("DATA FOR DICTIOARY: ", data_dic)
     return steps
@@ -341,10 +366,20 @@ def saveconsultant():
 
 @app.route("/showpostjobs")
 def ShowPostJobs():
-    data = ConsultantData.getDataById(session['userId'], session["fullName"])
-    # print('data  from ShowPostJobs : ', data)
-    data.append({'username': session["fullName"]})
-    return render_template('jobs.html', paramName=data)
+    data = ConsultantData.getPostJobsById(session['userId'], session["fullName"])
+    if data:
+        print('main > ShowPostJobs > data : ', data)
+        data.append({'username': session["fullName"]})
+        print("after appending ",data)
+        return render_template('jobs.html', paramName=data)
+    else:
+        data=list()
+        global data_dic
+        data_dic={}
+        data_dic['username'] = session['fullName']
+        data.append(data_dic)
+        print('main > ShowPostJobs > Else data_dic : ', data_dic)
+        return render_template('jobs.html', paramName=data)
 
 
 @app.route("/title")
@@ -422,8 +457,14 @@ def RegistrationPage():
                         print("userId for session is : ", session["userId"])
                         global uid
                         uid = str(session["userId"])
+                        data = list()
+                        global data_dic
+                        data_dic ={}
                         data_dic['username'] = session["fullName"]
-                    return render_template('consultation.html', paramName=data_dic)
+                        print("from registration data_dict is ", data_dic)
+                        data.append(data_dic.copy())
+                        print("from registration DATA is ", data)
+                    return render_template('consultation.html', paramName=data)
                     ######
                 cur.close()
 

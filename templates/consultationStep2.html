@@ -43,15 +43,14 @@
                                 </ul>
 
                                 <div class="col-sm-12 pl-0">
-                                    <textarea class="form-control border-danger" rows="5" id="Description"
+                                    <textarea class="form-control" rows="5" id="Description"
                                               name="Description">It has to be great.</textarea>
                                     <input type="hidden" name="steps" value="step3">
                                     <p class="text-right">0/5000 characters (minimum 50)</p>
 
 
                                 </div>
-                                <p><span class="label label-danger btn-block">Description should be greater than 50 characters</span>
-                                </p>
+                                <p style="color: red;" id="desc_error_msg" value="" class="desc_error_msg"><b></b></p>
 
                                 <h4 class="">Additional project files</h4>
 
@@ -95,4 +94,17 @@
 
 
 </div>
-
+<script>
+        $("#Description").change(function(){
+            if($(this).val().length<50){
+                $('#Description').fadeIn().html('').css("border","1px solid red");
+                $('.desc_error_msg').html('<span class="label label-danger btn-block">Description have atleast minimum 50 characters for the job post.</span>');
+                $('.desc_error_msg').show();
+                return false;
+            }else{
+                $('#Description').fadeIn().html('').css("border","1px solid grey");
+                $('.desc_error_msg').hide();
+                return true;
+            }
+        });
+</script>

@@ -5,11 +5,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Consultant.py" beforeDir="false" afterPath="$PROJECT_DIR$/Consultant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/expertise2.html" beforeDir="false" afterPath="$PROJECT_DIR$/expertise2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.js.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/LayoutHeader.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/LayoutHeader.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/consultation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consultation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/consultationStep1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consultationStep1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/consultationStep2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consultationStep2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/consultationStep3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consultationStep3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/consultationStep4.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consultationStep4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/consultationStep7.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/consultationStep7.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/jobs.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jobs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/landing-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/landing-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,48 +68,53 @@
     <session id="-1217724395">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.17" value="2" />
-          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.17" value="3" />
+          <entry key="project.open.time.19" value="3" />
+          <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="2" />
+          <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.38" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitattributes" value="1" />
-          <entry key="html" value="91" />
+          <entry key="html" value="101" />
           <entry key="js" value="3" />
           <entry key="properties" value="1" />
-          <entry key="py" value="51" />
+          <entry key="py" value="55" />
           <entry key="rnc" value="2" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="91" />
+          <entry key="HTML" value="101" />
           <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="51" />
+          <entry key="Python" value="55" />
           <entry key="RNG Compact" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="90" />
-          <entry key="html" value="11051" />
-          <entry key="py" value="8064" />
+          <entry key="dummy" value="6" />
+          <entry key="html" value="14255" />
+          <entry key="py" value="10264" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="11051" />
-          <entry key="Python" value="8154" />
+          <entry key="HTML" value="14255" />
+          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="Python" value="10354" />
         </counts>
       </usages-collector>
     </session>
@@ -112,12 +124,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="139" selection-start-line="139" selection-end-line="139" />
+            <state relative-caret-position="3315">
+              <caret line="208" column="51" selection-start-line="208" selection-start-column="40" selection-end-line="208" selection-end-column="51" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-                <marker date="1542786122918" expanded="true" signature="5722:5723" ph="..." />
-                <marker date="1542786122918" expanded="true" signature="5722:5727" ph="..." />
               </folding>
             </state>
           </provider>
@@ -126,28 +136,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Consultant.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="261" column="86" selection-start-line="261" selection-start-column="86" selection-end-line="261" selection-end-column="86" />
+            <state relative-caret-position="833">
+              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
-                <marker date="1542794615973" expanded="true" signature="477:479" ph="..." />
-                <marker date="1542794615973" expanded="true" signature="477:487" ph="..." />
-                <marker date="1542794615973" expanded="true" signature="10427:10428" ph="..." />
-                <marker date="1542794615973" expanded="true" signature="10460:11512" ph="..." />
-                <marker date="1542794615973" expanded="true" signature="11511:11512" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/consultation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="312" column="17" selection-start-line="312" selection-start-column="17" selection-end-line="312" selection-end-column="17" />
+            <state relative-caret-position="4335">
+              <caret line="255" column="16" selection-start-line="255" selection-start-column="16" selection-end-line="255" selection-end-column="16" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ins#0;n#div#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#nav#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#option#0;n#select#0;n#nav#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -156,10 +162,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/jobs.html">
+        <entry file="file://$PROJECT_DIR$/templates/consultationStep3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="302" column="137" selection-start-line="302" selection-start-column="113" selection-end-line="302" selection-end-column="137" />
+            <state relative-caret-position="1360">
+              <caret line="80" column="61" lean-forward="true" selection-start-line="80" selection-start-column="61" selection-end-line="80" selection-end-column="61" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/consultationStep4.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="658">
+              <caret line="182" column="14" lean-forward="true" selection-start-line="182" selection-start-column="14" selection-end-line="182" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/expertise2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5933">
+              <caret line="349" selection-start-line="349" selection-end-line="410" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/consultationStep2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="52" column="118" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="118" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -167,9 +206,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/consultationStep1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4883">
-              <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+            <state relative-caret-position="1768">
+              <caret line="104" column="110" lean-forward="true" selection-start-line="104" selection-start-column="32" selection-end-line="104" selection-end-column="110" />
               <folding>
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#section#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#section#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -183,50 +224,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/consultationStep3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="279" column="14" selection-start-line="279" selection-start-column="8" selection-end-line="279" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/LayoutHeader.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3315">
-              <caret line="42" column="97" selection-start-line="42" selection-start-column="75" selection-end-line="42" selection-end-column="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/consultationStep7.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="248" column="22" selection-start-line="248" selection-start-column="20" selection-end-line="248" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#5;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="65" column="37" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/consultationStep2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="88" column="98" selection-start-line="88" selection-start-column="98" selection-end-line="88" selection-end-column="98" />
+            <state relative-caret-position="459">
+              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -242,36 +243,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>file</find>
+      <find>consultantID found, going to update</find>
+      <find>into getConsultantById</find>
+      <find>ConsultantClass</find>
+      <find>step1</find>
+      <find>from main.js - saveconsultant</find>
+      <find>into getConsultantById last_inserted_id  and sel</find>
+      <find>from SaveConsultant steps is</find>
+      <find>into getConsultantById last_inserted_id  and self.consultantID</find>
       <find>data retrieved from getConsultantById</find>
-      <find>clsTimeOne</find>
-      <find>JobCat</find>
-      <find>divDetails1</find>
-      <find>redi</find>
-      <find>titl</find>
-      <find>consultantstep1</find>
-      <find>title</find>
-      <find>html</find>
-      <find>SaveRecord</find>
-      <find>Title</find>
-      <find>block</find>
-      <find>ow wrapper border-bottom white-bg page-h</find>
-      <find>src</find>
-      <find>data_dic</find>
+      <find>stepLoad</find>
+      <find>rendering consultationStep</find>
       <find>consultantstep7</find>
-      <find>paramN</find>
-      <find>fullna</find>
-      <find>href</find>
-      <find>divMain</find>
-      <find>param</find>
-      <find>DATA FOR DICTIOARY</find>
-      <find>sess</find>
-      <find>username</find>
-      <find>consultant</find>
-      <find>add</find>
-      <find>addclas</find>
-      <find>sjob</find>
-      <find>clsApi</find>
+      <find>saveConsultantpage</find>
+      <find>rendering consultationStep7</find>
+      <find>from main.js - saveconsultant - consultantID</find>
+      <find>into getConsultantById last_inserted_id</find>
+      <find>alert</find>
+      <find>Retrieved from main-&gt;saveconsultant</find>
+      <find>mb-4</find>
+      <find>size</find>
+      <find>form-control</find>
+      <find>jobButton</find>
+      <find>hidde</find>
+      <find>error_msg</find>
+      <find>consultantstep1</find>
+      <find>col-lg-4</find>
+      <find>Description should be greater than 50 characters</find>
+      <find>fol</find>
+      <find>clsdesribe</find>
+      <find>Description</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -292,27 +293,29 @@
         <option value="$PROJECT_DIR$/templates/personal-links.html" />
         <option value="D:/flask_projects/centralin2/main.js.py" />
         <option value="$PROJECT_DIR$/connection.py" />
-        <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/PythonFiles/config.py" />
         <option value="$PROJECT_DIR$/userFile.py" />
         <option value="$PROJECT_DIR$/personallinks.py" />
         <option value="$PROJECT_DIR$/login.html" />
-        <option value="$PROJECT_DIR$/templates/consultationStep3.html" />
         <option value="$PROJECT_DIR$/templates/consultationStep5.html" />
-        <option value="$PROJECT_DIR$/templates/consultationStep4.html" />
         <option value="$PROJECT_DIR$/title.html" />
-        <option value="$PROJECT_DIR$/templates/consultationStep2.html" />
         <option value="$PROJECT_DIR$/templates/consultationStep6.html" />
-        <option value="$PROJECT_DIR$/templates/consultationStep7.html" />
         <option value="$PROJECT_DIR$/templates/title.html" />
         <option value="$PROJECT_DIR$/templates/forgot_password.html" />
-        <option value="$PROJECT_DIR$/templates/landing-page.html" />
-        <option value="$PROJECT_DIR$/templates/LayoutHeader.html" />
+        <option value="$PROJECT_DIR$/templates/consultationStep7.html" />
         <option value="$PROJECT_DIR$/templates/jobs.html" />
+        <option value="$PROJECT_DIR$/templates/LayoutHeader.html" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/templates/landing-page.html" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Consultant.py" />
         <option value="$PROJECT_DIR$/main.js.py" />
         <option value="$PROJECT_DIR$/templates/consultationStep1.html" />
-        <option value="$PROJECT_DIR$/Consultant.py" />
+        <option value="$PROJECT_DIR$/templates/consultationStep2.html" />
         <option value="$PROJECT_DIR$/templates/consultation.html" />
+        <option value="$PROJECT_DIR$/templates/consultationStep3.html" />
+        <option value="$PROJECT_DIR$/expertise2.html" />
+        <option value="$PROJECT_DIR$/templates/consultationStep4.html" />
       </list>
     </option>
   </component>
@@ -373,8 +376,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main.js">
-    <configuration name="connection" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.main.js (3)">
+    <configuration name="Consultant" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="centralin" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -386,7 +389,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/connection.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Consultant.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="centralin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Project- Velocis\centralin\centralin\main.js.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -407,7 +431,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.js.py" />
+      <option name="SCRIPT_NAME" value="D:\Project- Velocis\centralin\centralin\main.js.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -437,7 +461,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main.js" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="main.js (3)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="centralin" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -458,18 +482,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main.js" type="PythonConfigurationType" factoryName="Python">
+      <module name="centralin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Project- Velocis\centralin\centralin\main.js.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main.js" />
       <item itemvalue="Python.main.js (1)" />
-      <item itemvalue="Python.connection" />
       <item itemvalue="Python.main.js (2)" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.Consultant" />
+      <item itemvalue="Python.main.js (3)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main.js (3)" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.Consultant" />
         <item itemvalue="Python.main.js (1)" />
         <item itemvalue="Python.main.js" />
-        <item itemvalue="Python.connection" />
-        <item itemvalue="Python.main.js (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -495,7 +543,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33647376" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33647376" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39973083" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -625,34 +673,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/pymysql/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/pymysql/connections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3529">
-          <caret line="628" selection-start-line="628" selection-end-line="628" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/flask_projects/centralin2/main.js.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="43" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consultation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="198" column="69" lean-forward="true" selection-start-line="198" selection-start-column="69" selection-end-line="198" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/flask/sessions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -743,20 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/consultationStep5.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/consultationStep4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="29" column="40" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/core-scripting.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -802,24 +808,10 @@
     <entry file="file://$PROJECT_DIR$/templates/title.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/consultationStep6.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="222" column="27" selection-start-line="222" selection-start-column="16" selection-end-line="222" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/forgot_password.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="35" column="66" lean-forward="true" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -844,13 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/landing-page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="42" column="43" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jinja2/lexer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -865,13 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/consultationStep2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="88" column="98" selection-start-line="88" selection-start-column="98" selection-end-line="88" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jinja2/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -879,70 +857,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="65" column="37" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa13988.40390/main.js.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa13988.44456/main.js.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa13988.47660/main.js.py" />
     <entry file="file://$PROJECT_DIR$/templates/jobs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="302" column="137" selection-start-line="302" selection-start-column="113" selection-end-line="302" selection-end-column="137" />
+        <state relative-caret-position="7769">
+          <caret line="457" column="6" lean-forward="true" selection-start-line="457" selection-start-column="6" selection-end-line="457" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Consultant.py">
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="261" column="86" selection-start-line="261" selection-start-column="86" selection-end-line="261" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-            <marker date="1542794615973" expanded="true" signature="477:479" ph="..." />
-            <marker date="1542794615973" expanded="true" signature="477:487" ph="..." />
-            <marker date="1542794615973" expanded="true" signature="10427:10428" ph="..." />
-            <marker date="1542794615973" expanded="true" signature="10460:11512" ph="..." />
-            <marker date="1542794615973" expanded="true" signature="11511:11512" ph="..." />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="16" selection-end-column="98" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js.py">
+    <entry file="file://$PROJECT_DIR$/templates/consultationStep5.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="139" selection-start-line="139" selection-end-line="139" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1542786122918" expanded="true" signature="5722:5723" ph="..." />
-            <marker date="1542786122918" expanded="true" signature="5722:5727" ph="..." />
-          </folding>
+        <state relative-caret-position="1615">
+          <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/consultationStep7.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="248" column="22" selection-start-line="248" selection-start-column="20" selection-end-line="248" selection-end-column="22" />
+        <state relative-caret-position="4675">
+          <caret line="275" column="21" selection-start-line="275" selection-start-column="13" selection-end-line="275" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/consultationStep6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3774">
+          <caret line="222" column="27" selection-start-line="222" selection-start-column="16" selection-end-line="222" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/landing-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="71" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3315">
+          <caret line="208" column="51" selection-start-line="208" selection-start-column="40" selection-end-line="208" selection-end-column="51" />
           <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#5;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/LayoutHeader.html">
+    <entry file="file://$PROJECT_DIR$/Consultant.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3315">
-          <caret line="42" column="97" selection-start-line="42" selection-start-column="75" selection-end-line="42" selection-end-column="97" />
+        <state relative-caret-position="833">
+          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/consultation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4335">
+          <caret line="255" column="16" selection-start-line="255" selection-start-column="16" selection-end-line="255" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ins#0;n#div#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#nav#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#option#0;n#select#0;n#nav#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/consultationStep3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="61" lean-forward="true" selection-start-line="80" selection-start-column="61" selection-end-line="80" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expertise2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5933">
+          <caret line="349" selection-start-line="349" selection-end-line="410" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/consultationStep2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="118" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="118" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/consultationStep1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4883">
-          <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        <state relative-caret-position="1768">
+          <caret line="104" column="110" lean-forward="true" selection-start-line="104" selection-start-column="32" selection-end-line="104" selection-end-column="110" />
           <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#section#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#section#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -954,23 +988,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/consultationStep3.html">
+    <entry file="file://$PROJECT_DIR$/templates/LayoutHeader.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="279" column="14" selection-start-line="279" selection-start-column="8" selection-end-line="279" selection-end-column="14" />
+        <state relative-caret-position="459">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/consultation.html">
+    <entry file="file://$PROJECT_DIR$/templates/consultationStep4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="312" column="17" selection-start-line="312" selection-start-column="17" selection-end-line="312" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ins#0;n#div#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#nav#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#option#0;n#select#0;n#nav#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="658">
+          <caret line="182" column="14" lean-forward="true" selection-start-line="182" selection-start-column="14" selection-end-line="182" selection-end-column="14" />
         </state>
       </provider>
     </entry>
